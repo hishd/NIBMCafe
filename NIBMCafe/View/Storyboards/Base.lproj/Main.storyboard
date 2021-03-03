@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
         <array key="Montserrat-Medium.ttf">
             <string>Montserrat-Medium</string>
         </array>
@@ -26,7 +29,7 @@
                 <viewControllerPlaceholder storyboardName="Home" id="6cG-aE-rPp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1v-sf-jEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="-540"/>
+            <point key="canvasLocation" x="677" y="-500"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -105,6 +108,9 @@
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" name="dark_gray"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="Ucy-CD-QmX" kind="presentation" modalPresentationStyle="fullScreen" id="dBd-2b-uAa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kis-GU-MNf">
                                                 <rect key="frame" x="60" y="518" width="255" height="45"/>
@@ -193,7 +199,92 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="117.25352112676056"/>
+            <point key="canvasLocation" x="-342" y="116"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="t05-qX-OlP">
+            <objects>
+                <viewController id="Ucy-CD-QmX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nXU-CH-fU5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye7-YH-H5o">
+                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <color key="backgroundColor" name="light_gray_2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="CK2-3m-jWE"/>
+                                    <constraint firstAttribute="height" constant="30" id="nL9-qy-vWA"/>
+                                </constraints>
+                                <color key="tintColor" name="orange"/>
+                                <state key="normal" image="chevron.backward" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-KJ-tnb">
+                                <rect key="frame" x="99" y="23" width="177.5" height="24.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" name="dark_gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jdh-y5-Zpi">
+                                <rect key="frame" x="20" y="110" width="335" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usd-Qc-jKE">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="15"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
+                                        <color key="textColor" name="dark_gray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" background="round_text_bg" translatesAutoresizingMaskIntoConstraints="NO" id="7zn-N1-VL7" customClass="CustomTextField" customModule="NIBMCafe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="23" width="335" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="rsG-IN-kKa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-4k-eit">
+                                <rect key="frame" x="60" y="218" width="255" height="45"/>
+                                <color key="backgroundColor" name="orange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="5Bj-S4-BbZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
+                                <state key="normal" title="Reset Password">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hvi-w9-w8L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ppv-4k-eit" firstAttribute="top" secondItem="jdh-y5-Zpi" secondAttribute="bottom" constant="40" id="4L5-kw-auz"/>
+                            <constraint firstItem="Ye7-YH-H5o" firstAttribute="leading" secondItem="Hvi-w9-w8L" secondAttribute="leading" constant="20" id="8Oq-Ri-Nb1"/>
+                            <constraint firstItem="Ye7-YH-H5o" firstAttribute="top" secondItem="Hvi-w9-w8L" secondAttribute="top" constant="20" id="HtO-xu-HlG"/>
+                            <constraint firstItem="jdh-y5-Zpi" firstAttribute="leading" secondItem="Hvi-w9-w8L" secondAttribute="leading" constant="20" id="MVi-PN-cZB"/>
+                            <constraint firstItem="CYF-KJ-tnb" firstAttribute="centerY" secondItem="Ye7-YH-H5o" secondAttribute="centerY" id="c28-kT-btS"/>
+                            <constraint firstItem="Hvi-w9-w8L" firstAttribute="trailing" secondItem="ppv-4k-eit" secondAttribute="trailing" constant="60" id="dEe-iu-QMe"/>
+                            <constraint firstItem="ppv-4k-eit" firstAttribute="leading" secondItem="Hvi-w9-w8L" secondAttribute="leading" constant="60" id="fSR-1x-jNk"/>
+                            <constraint firstItem="CYF-KJ-tnb" firstAttribute="centerX" secondItem="nXU-CH-fU5" secondAttribute="centerX" id="hAU-wn-cLa"/>
+                            <constraint firstItem="Hvi-w9-w8L" firstAttribute="trailing" secondItem="jdh-y5-Zpi" secondAttribute="trailing" constant="20" id="sjU-TS-v7z"/>
+                            <constraint firstItem="jdh-y5-Zpi" firstAttribute="top" secondItem="Ye7-YH-H5o" secondAttribute="bottom" constant="60" id="vvJ-OO-EHx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eo-yK-9Gy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343" y="913"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="3m7-qz-IzS">
@@ -412,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-3d-RIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="116"/>
+            <point key="canvasLocation" x="678" y="116"/>
         </scene>
         <!--Request Location View Controller-->
         <scene sceneID="uUA-I6-Thv">
@@ -481,13 +572,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMZ-ce-gdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="115"/>
+            <point key="canvasLocation" x="1484" y="116"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="53y-0S-LfX"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="location" width="222.5" height="215.5"/>
         <image name="logo" width="500" height="291"/>
         <image name="round_text_bg" width="304" height="45"/>
@@ -496,6 +588,9 @@
         </namedColor>
         <namedColor name="light_gray">
             <color red="0.7369999885559082" green="0.74099999666213989" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="light_gray_2">
+            <color red="0.96100002527236938" green="0.9570000171661377" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="orange">
             <color red="1" green="0.42399999499320984" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
