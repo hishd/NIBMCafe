@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderItemReuseIdentifier" rowHeight="120" id="KGk-i7-Jjw" customClass="OrderCell" customModule="NIBMCafe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILL-dL-deg">
+                        <rect key="frame" x="0.0" y="10" width="330" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#ORDERID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dS-yY-ydh">
+                                <rect key="frame" x="20" y="15" width="99.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" name="orange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.02.2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9e-56-jET">
+                                <rect key="frame" x="20" y="48.5" width="50.5" height="12"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="10"/>
+                                <color key="textColor" name="dark"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5s-yf-SOp">
+                                <rect key="frame" x="20" y="70.5" width="33" height="12"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="10"/>
+                                <color key="textColor" name="dark"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Status" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gte-AO-dY8">
+                                <rect key="frame" x="241" y="19" width="74" height="16"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="13"/>
+                                <color key="textColor" name="green"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS. 0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htz-KB-atl">
+                                <rect key="frame" x="232.5" y="68.5" width="77.5" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                                <color key="textColor" name="dark"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="light_gray_2"/>
+                        <constraints>
+                            <constraint firstItem="Htz-KB-atl" firstAttribute="centerY" secondItem="E5s-yf-SOp" secondAttribute="centerY" id="Abb-YH-oq7"/>
+                            <constraint firstItem="Gte-AO-dY8" firstAttribute="centerY" secondItem="7dS-yY-ydh" secondAttribute="centerY" id="Nab-TI-qMr"/>
+                            <constraint firstItem="b9e-56-jET" firstAttribute="leading" secondItem="ILL-dL-deg" secondAttribute="leading" constant="20" id="WCU-15-QTw"/>
+                            <constraint firstItem="7dS-yY-ydh" firstAttribute="leading" secondItem="ILL-dL-deg" secondAttribute="leading" constant="20" id="XJS-OQ-uPf"/>
+                            <constraint firstAttribute="trailing" secondItem="Gte-AO-dY8" secondAttribute="trailing" constant="15" id="Y4l-aY-LVH"/>
+                            <constraint firstItem="E5s-yf-SOp" firstAttribute="leading" secondItem="ILL-dL-deg" secondAttribute="leading" constant="20" id="d3B-jU-NeC"/>
+                            <constraint firstItem="E5s-yf-SOp" firstAttribute="top" secondItem="b9e-56-jET" secondAttribute="bottom" constant="10" id="fy5-wi-vuu"/>
+                            <constraint firstItem="7dS-yY-ydh" firstAttribute="top" secondItem="ILL-dL-deg" secondAttribute="top" constant="15" id="nJq-5q-eF0"/>
+                            <constraint firstItem="b9e-56-jET" firstAttribute="top" secondItem="7dS-yY-ydh" secondAttribute="bottom" constant="10" id="ons-CI-kRs"/>
+                            <constraint firstAttribute="trailing" secondItem="Htz-KB-atl" secondAttribute="trailing" constant="20" id="ph5-hI-3GP"/>
+                            <constraint firstAttribute="height" constant="100" id="xVh-AL-XrN"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ILL-dL-deg" secondAttribute="bottom" constant="10" id="56n-6n-Dci"/>
+                    <constraint firstItem="ILL-dL-deg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="D5S-uE-ZmB"/>
+                    <constraint firstItem="ILL-dL-deg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Wa6-fK-clm"/>
+                    <constraint firstAttribute="trailing" secondItem="ILL-dL-deg" secondAttribute="trailing" id="t4o-Y4-0PP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblOrderDate" destination="b9e-56-jET" id="ymN-2G-FvR"/>
+                <outlet property="lblOrderID" destination="7dS-yY-ydh" id="jpH-RN-FSx"/>
+                <outlet property="lblOrderItemCount" destination="E5s-yf-SOp" id="5Ae-XM-0TO"/>
+                <outlet property="lblOrderStatus" destination="Gte-AO-dY8" id="Ctf-DF-KhD"/>
+                <outlet property="lblOrderTotal" destination="Htz-KB-atl" id="hfv-yb-hrG"/>
+            </connections>
+            <point key="canvasLocation" x="128.98550724637681" y="154.01785714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="dark">
+            <color red="0.20800000429153442" green="0.22400000691413879" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="green">
+            <color red="0.0" green="0.80000001192092896" blue="0.019999999552965164" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="light_gray_2">
+            <color red="0.96100002527236938" green="0.9570000171661377" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="1" green="0.42399999499320984" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

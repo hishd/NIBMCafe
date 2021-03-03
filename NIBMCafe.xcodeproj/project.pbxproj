@@ -3,27 +3,91 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123FAE45BBB42FD8D69BD21A /* Pods_NIBMCafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072C76AB93943D8EBB0D58C9 /* Pods_NIBMCafe.framework */; };
+		4F62C46C25EB7C63006F1537 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46A25EB7C63006F1537 /* CartItemCell.swift */; };
+		4F62C46D25EB7C63006F1537 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F62C46B25EB7C63006F1537 /* CartItemCell.xib */; };
+		4F62C47025EB8F45006F1537 /* CartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */; };
+		4F62C47325EBFB6F006F1537 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */; };
+		4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */; };
+		4FA5CC7425EA9BD400488DB2 /* FoodItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */; };
 		4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C1C25E8E767002CE811 /* AppDelegate.swift */; };
 		4FB31C1F25E8E767002CE811 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C1E25E8E767002CE811 /* SceneDelegate.swift */; };
-		4FB31C2125E8E767002CE811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C2025E8E767002CE811 /* ViewController.swift */; };
+		4FB31C2125E8E767002CE811 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C2025E8E767002CE811 /* SignInViewController.swift */; };
 		4FB31C2425E8E767002CE811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C2225E8E767002CE811 /* Main.storyboard */; };
 		4FB31C2625E8E76B002CE811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C2525E8E76B002CE811 /* Assets.xcassets */; };
 		4FB31C2925E8E76B002CE811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C2725E8E76B002CE811 /* LaunchScreen.storyboard */; };
+		4FB31C3625E8F243002CE811 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C3225E8F243002CE811 /* Montserrat-Regular.ttf */; };
+		4FB31C3725E8F243002CE811 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C3325E8F243002CE811 /* Montserrat-Medium.ttf */; };
+		4FB31C3825E8F243002CE811 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C3425E8F243002CE811 /* Montserrat-Bold.ttf */; };
+		4FB31C3925E8F243002CE811 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FB31C3525E8F243002CE811 /* Montserrat-SemiBold.ttf */; };
+		4FBD71AD25E95987005B4311 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FBD71AC25E95987005B4311 /* Home.storyboard */; };
+		4FBD71B225E96A24005B4311 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71B125E96A24005B4311 /* Constraints.swift */; };
+		4FBD71B625E96B37005B4311 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71B525E96B37005B4311 /* SignUpViewController.swift */; };
+		4FBD71B925E96B62005B4311 /* RequestLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71B825E96B62005B4311 /* RequestLocationViewController.swift */; };
+		4FBD71BD25E97162005B4311 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71BC25E97162005B4311 /* CustomTextField.swift */; };
+		4FBD71C025E97DBB005B4311 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71BF25E97DBB005B4311 /* RoundButton.swift */; };
+		4FBD71C525E97E5C005B4311 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71C425E97E5C005B4311 /* FoodViewController.swift */; };
+		4FBD71CE25E98085005B4311 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71CC25E98085005B4311 /* CategoryCell.swift */; };
+		4FBD71CF25E98085005B4311 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBD71CD25E98085005B4311 /* CategoryCell.xib */; };
+		4FBD71D225E985CC005B4311 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD71D125E985CC005B4311 /* Models.swift */; };
+		4FFF67DA25EF3E8D006ACC85 /* DoubleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67D925EF3E8D006ACC85 /* DoubleUtils.swift */; };
+		4FFF67DD25EF4C82006ACC85 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67DC25EF4C82006ACC85 /* RoundImage.swift */; };
+		4FFF67E025EF4E00006ACC85 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67DF25EF4E00006ACC85 /* OrderViewController.swift */; };
+		4FFF67E425EF5001006ACC85 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67E225EF5001006ACC85 /* OrderCell.swift */; };
+		4FFF67E525EF5001006ACC85 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FFF67E325EF5001006ACC85 /* OrderCell.xib */; };
+		4FFF67E825EF5296006ACC85 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67E725EF5296006ACC85 /* DateUtils.swift */; };
+		4FFF67EE25EFD764006ACC85 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67ED25EFD764006ACC85 /* ProfileViewController.swift */; };
+		4FFF67F225EFD955006ACC85 /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67F025EFD955006ACC85 /* OrderSummaryCell.swift */; };
+		4FFF67F325EFD955006ACC85 /* OrderSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FFF67F125EFD955006ACC85 /* OrderSummaryCell.xib */; };
+		4FFF67F625EFE301006ACC85 /* SpacedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF67F525EFE301006ACC85 /* SpacedLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072C76AB93943D8EBB0D58C9 /* Pods_NIBMCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBMCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AF9AAEE2CE550E98184882 /* Pods-NIBMCafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCafe.debug.xcconfig"; path = "Target Support Files/Pods-NIBMCafe/Pods-NIBMCafe.debug.xcconfig"; sourceTree = "<group>"; };
+		4F62C46A25EB7C63006F1537 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		4F62C46B25EB7C63006F1537 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewController.swift; sourceTree = "<group>"; };
+		4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
+		4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemCell.xib; sourceTree = "<group>"; };
 		4FB31C1925E8E767002CE811 /* NIBMCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB31C1C25E8E767002CE811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB31C1E25E8E767002CE811 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4FB31C2025E8E767002CE811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4FB31C2025E8E767002CE811 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4FB31C2325E8E767002CE811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FB31C2525E8E76B002CE811 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FB31C2825E8E76B002CE811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FB31C2A25E8E76B002CE811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FB31C3225E8F243002CE811 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		4FB31C3325E8F243002CE811 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		4FB31C3425E8F243002CE811 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		4FB31C3525E8F243002CE811 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		4FBD71AC25E95987005B4311 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		4FBD71B125E96A24005B4311 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		4FBD71B525E96B37005B4311 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4FBD71B825E96B62005B4311 /* RequestLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLocationViewController.swift; sourceTree = "<group>"; };
+		4FBD71BC25E97162005B4311 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4FBD71BF25E97DBB005B4311 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		4FBD71C425E97E5C005B4311 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		4FBD71CC25E98085005B4311 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		4FBD71CD25E98085005B4311 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		4FBD71D125E985CC005B4311 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4FFF67D925EF3E8D006ACC85 /* DoubleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleUtils.swift; sourceTree = "<group>"; };
+		4FFF67DC25EF4C82006ACC85 /* RoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
+		4FFF67DF25EF4E00006ACC85 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		4FFF67E225EF5001006ACC85 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		4FFF67E325EF5001006ACC85 /* OrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
+		4FFF67E725EF5296006ACC85 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		4FFF67ED25EFD764006ACC85 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4FFF67F025EFD955006ACC85 /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
+		4FFF67F125EFD955006ACC85 /* OrderSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryCell.xib; sourceTree = "<group>"; };
+		4FFF67F525EFE301006ACC85 /* SpacedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedLabel.swift; sourceTree = "<group>"; };
+		F0D58897E5C865FDB4047754 /* Pods-NIBMCafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCafe.release.xcconfig"; path = "Target Support Files/Pods-NIBMCafe/Pods-NIBMCafe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				123FAE45BBB42FD8D69BD21A /* Pods_NIBMCafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +107,8 @@
 			children = (
 				4FB31C1B25E8E767002CE811 /* NIBMCafe */,
 				4FB31C1A25E8E767002CE811 /* Products */,
+				B64D89EC41985FD93DD48880 /* Pods */,
+				9B9A5E7291290B7CB6F25AFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +123,150 @@
 		4FB31C1B25E8E767002CE811 /* NIBMCafe */ = {
 			isa = PBXGroup;
 			children = (
+				4FFF67D825EF3E79006ACC85 /* Util */,
+				4FBD71BB25E9713A005B4311 /* CustomView */,
+				4FBD71B025E96A13005B4311 /* Constraints */,
+				4FBD71AB25E95910005B4311 /* Controller */,
+				4FBD71AA25E95909005B4311 /* View */,
+				4FBD71A925E95903005B4311 /* Model */,
+				4FB31C3125E8F1DC002CE811 /* Fonts */,
 				4FB31C1C25E8E767002CE811 /* AppDelegate.swift */,
 				4FB31C1E25E8E767002CE811 /* SceneDelegate.swift */,
-				4FB31C2025E8E767002CE811 /* ViewController.swift */,
-				4FB31C2225E8E767002CE811 /* Main.storyboard */,
 				4FB31C2525E8E76B002CE811 /* Assets.xcassets */,
 				4FB31C2725E8E76B002CE811 /* LaunchScreen.storyboard */,
 				4FB31C2A25E8E76B002CE811 /* Info.plist */,
 			);
 			path = NIBMCafe;
+			sourceTree = "<group>";
+		};
+		4FB31C3125E8F1DC002CE811 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4FB31C3425E8F243002CE811 /* Montserrat-Bold.ttf */,
+				4FB31C3325E8F243002CE811 /* Montserrat-Medium.ttf */,
+				4FB31C3225E8F243002CE811 /* Montserrat-Regular.ttf */,
+				4FB31C3525E8F243002CE811 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4FBD71A925E95903005B4311 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71D125E985CC005B4311 /* Models.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4FBD71AA25E95909005B4311 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71C925E98050005B4311 /* XIBView */,
+				4FBD71C825E98042005B4311 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4FBD71AB25E95910005B4311 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71C325E97E45005B4311 /* Main */,
+				4FBD71C225E97E3B005B4311 /* Home */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4FBD71B025E96A13005B4311 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71B125E96A24005B4311 /* Constraints.swift */,
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
+		4FBD71BB25E9713A005B4311 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71BC25E97162005B4311 /* CustomTextField.swift */,
+				4FBD71BF25E97DBB005B4311 /* RoundButton.swift */,
+				4FFF67DC25EF4C82006ACC85 /* RoundImage.swift */,
+				4FFF67F525EFE301006ACC85 /* SpacedLabel.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		4FBD71C225E97E3B005B4311 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71C425E97E5C005B4311 /* FoodViewController.swift */,
+				4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */,
+				4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */,
+				4FFF67DF25EF4E00006ACC85 /* OrderViewController.swift */,
+				4FFF67ED25EFD764006ACC85 /* ProfileViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4FBD71C325E97E45005B4311 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4FB31C2025E8E767002CE811 /* SignInViewController.swift */,
+				4FBD71B525E96B37005B4311 /* SignUpViewController.swift */,
+				4FBD71B825E96B62005B4311 /* RequestLocationViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4FBD71C825E98042005B4311 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4FB31C2225E8E767002CE811 /* Main.storyboard */,
+				4FBD71AC25E95987005B4311 /* Home.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4FBD71C925E98050005B4311 /* XIBView */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD71CC25E98085005B4311 /* CategoryCell.swift */,
+				4FBD71CD25E98085005B4311 /* CategoryCell.xib */,
+				4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */,
+				4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */,
+				4F62C46A25EB7C63006F1537 /* CartItemCell.swift */,
+				4F62C46B25EB7C63006F1537 /* CartItemCell.xib */,
+				4FFF67E225EF5001006ACC85 /* OrderCell.swift */,
+				4FFF67E325EF5001006ACC85 /* OrderCell.xib */,
+				4FFF67F025EFD955006ACC85 /* OrderSummaryCell.swift */,
+				4FFF67F125EFD955006ACC85 /* OrderSummaryCell.xib */,
+			);
+			path = XIBView;
+			sourceTree = "<group>";
+		};
+		4FFF67D825EF3E79006ACC85 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				4FFF67D925EF3E8D006ACC85 /* DoubleUtils.swift */,
+				4FFF67E725EF5296006ACC85 /* DateUtils.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		9B9A5E7291290B7CB6F25AFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				072C76AB93943D8EBB0D58C9 /* Pods_NIBMCafe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B64D89EC41985FD93DD48880 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15AF9AAEE2CE550E98184882 /* Pods-NIBMCafe.debug.xcconfig */,
+				F0D58897E5C865FDB4047754 /* Pods-NIBMCafe.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FB31C2D25E8E76B002CE811 /* Build configuration list for PBXNativeTarget "NIBMCafe" */;
 			buildPhases = (
+				398BAB46A934E01FFAC48181 /* [CP] Check Pods Manifest.lock */,
 				4FB31C1525E8E767002CE811 /* Sources */,
 				4FB31C1625E8E767002CE811 /* Frameworks */,
 				4FB31C1725E8E767002CE811 /* Resources */,
+				497F6A3953D8638D5D209601 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,22 +328,94 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB31C3625E8F243002CE811 /* Montserrat-Regular.ttf in Resources */,
+				4FB31C3725E8F243002CE811 /* Montserrat-Medium.ttf in Resources */,
+				4FFF67E525EF5001006ACC85 /* OrderCell.xib in Resources */,
+				4FBD71AD25E95987005B4311 /* Home.storyboard in Resources */,
+				4FB31C3825E8F243002CE811 /* Montserrat-Bold.ttf in Resources */,
+				4F62C46D25EB7C63006F1537 /* CartItemCell.xib in Resources */,
+				4FB31C3925E8F243002CE811 /* Montserrat-SemiBold.ttf in Resources */,
 				4FB31C2925E8E76B002CE811 /* LaunchScreen.storyboard in Resources */,
+				4FFF67F325EFD955006ACC85 /* OrderSummaryCell.xib in Resources */,
+				4FA5CC7425EA9BD400488DB2 /* FoodItemCell.xib in Resources */,
 				4FB31C2625E8E76B002CE811 /* Assets.xcassets in Resources */,
+				4FBD71CF25E98085005B4311 /* CategoryCell.xib in Resources */,
 				4FB31C2425E8E767002CE811 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		398BAB46A934E01FFAC48181 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NIBMCafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		497F6A3953D8638D5D209601 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NIBMCafe/Pods-NIBMCafe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NIBMCafe/Pods-NIBMCafe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NIBMCafe/Pods-NIBMCafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4FB31C1525E8E767002CE811 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB31C2125E8E767002CE811 /* ViewController.swift in Sources */,
+				4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */,
+				4FBD71D225E985CC005B4311 /* Models.swift in Sources */,
+				4FBD71C025E97DBB005B4311 /* RoundButton.swift in Sources */,
+				4F62C47325EBFB6F006F1537 /* FoodDetailViewController.swift in Sources */,
+				4FBD71BD25E97162005B4311 /* CustomTextField.swift in Sources */,
+				4FFF67F225EFD955006ACC85 /* OrderSummaryCell.swift in Sources */,
+				4F62C46C25EB7C63006F1537 /* CartItemCell.swift in Sources */,
+				4FBD71B225E96A24005B4311 /* Constraints.swift in Sources */,
+				4FFF67F625EFE301006ACC85 /* SpacedLabel.swift in Sources */,
+				4FB31C2125E8E767002CE811 /* SignInViewController.swift in Sources */,
+				4FFF67E425EF5001006ACC85 /* OrderCell.swift in Sources */,
+				4FFF67DA25EF3E8D006ACC85 /* DoubleUtils.swift in Sources */,
+				4FBD71C525E97E5C005B4311 /* FoodViewController.swift in Sources */,
 				4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */,
+				4FFF67DD25EF4C82006ACC85 /* RoundImage.swift in Sources */,
 				4FB31C1F25E8E767002CE811 /* SceneDelegate.swift in Sources */,
+				4FBD71B625E96B37005B4311 /* SignUpViewController.swift in Sources */,
+				4F62C47025EB8F45006F1537 /* CartItemViewController.swift in Sources */,
+				4FBD71B925E96B62005B4311 /* RequestLocationViewController.swift in Sources */,
+				4FFF67E825EF5296006ACC85 /* DateUtils.swift in Sources */,
+				4FFF67EE25EFD764006ACC85 /* ProfileViewController.swift in Sources */,
+				4FBD71CE25E98085005B4311 /* CategoryCell.swift in Sources */,
+				4FFF67E025EF4E00006ACC85 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +559,7 @@
 		};
 		4FB31C2E25E8E76B002CE811 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15AF9AAEE2CE550E98184882 /* Pods-NIBMCafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -296,12 +573,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hishd.NIBMCafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4FB31C2F25E8E76B002CE811 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0D58897E5C865FDB4047754 /* Pods-NIBMCafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,7 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hishd.NIBMCafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
