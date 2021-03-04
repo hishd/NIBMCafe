@@ -13,6 +13,7 @@
 		4F31DB0425F12635000043E1 /* InputFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB0325F12635000043E1 /* InputFieldValidator.swift */; };
 		4F31DB0725F127E6000043E1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB0625F127E6000043E1 /* SessionManager.swift */; };
 		4F31DB0A25F12892000043E1 /* PopUpAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB0925F12892000043E1 /* PopUpAlerts.swift */; };
+		4F31DB1E25F12BA7000043E1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */; };
 		4F62C46C25EB7C63006F1537 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46A25EB7C63006F1537 /* CartItemCell.swift */; };
 		4F62C46D25EB7C63006F1537 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F62C46B25EB7C63006F1537 /* CartItemCell.xib */; };
 		4F62C47025EB8F45006F1537 /* CartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */; };
@@ -59,6 +60,7 @@
 		4F31DB0325F12635000043E1 /* InputFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidator.swift; sourceTree = "<group>"; };
 		4F31DB0625F127E6000043E1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4F31DB0925F12892000043E1 /* PopUpAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAlerts.swift; sourceTree = "<group>"; };
+		4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		4F62C46A25EB7C63006F1537 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		4F62C46B25EB7C63006F1537 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
 		4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				4F31DB0325F12635000043E1 /* InputFieldValidator.swift */,
 				4F31DB0625F127E6000043E1 /* SessionManager.swift */,
 				4F31DB0925F12892000043E1 /* PopUpAlerts.swift */,
+				4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				4FB31C2125E8E767002CE811 /* SignInViewController.swift in Sources */,
 				4FFF67E425EF5001006ACC85 /* OrderCell.swift in Sources */,
 				4F31DB0725F127E6000043E1 /* SessionManager.swift in Sources */,
+				4F31DB1E25F12BA7000043E1 /* NetworkMonitor.swift in Sources */,
 				4FFF67DA25EF3E8D006ACC85 /* DoubleUtils.swift in Sources */,
 				4FBD71C525E97E5C005B4311 /* FoodViewController.swift in Sources */,
 				4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */,
