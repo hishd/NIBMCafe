@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>629699257113-f2apu8hg5sola3ti6p1tojn9v394pase.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.629699257113-f2apu8hg5sola3ti6p1tojn9v394pase</string>
+	<key>API_KEY</key>
+	<string>AIzaSyANc61NJYq4dkIC8hzcbXp27TPwQuiACdk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>629699257113</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hishd.NIBMCafe</string>
+	<key>PROJECT_ID</key>
+	<string>nibmcafe</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nibmcafe.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:629699257113:ios:c27e0906e4891753885b88</string>
+</dict>
+</plist>

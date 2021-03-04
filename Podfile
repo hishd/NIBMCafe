@@ -8,5 +8,6 @@ target 'NIBMCafe' do
   # Pods for NIBMCafe
 
 pod 'ListPlaceholder'
+pod 'Firebase/Auth'
 
 end

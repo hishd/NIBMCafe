@@ -8,6 +8,32 @@
 import Foundation
 
 
+struct User: Codable {
+    var _id: String?
+    var userName: String?
+    var email: String?
+    var phoneNo: String?
+    var password: String?
+    
+    init(_id: String?, userName: String?, email: String?, phoneNo: String?, password: String?) {
+        self._id = _id
+        self.userName = userName
+        self.email = email
+        self.phoneNo = phoneNo
+        self.password = password
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self._id = try container.decodeIfPresent(String.self, forKey: ._id)
+        self.userName = try container.decodeIfPresent(String.self, forKey: .userName)
+        self.email = try container.decodeIfPresent(String.self, forKey: .email)
+        self.phoneNo = try container.decodeIfPresent(String.self, forKey: .phoneNo)
+        self.password = try container.decodeIfPresent(String.self, forKey: .password)
+    }
+}
+
+
 struct FoodCategory {
     var categoryName: String
     var isSelected: Bool
