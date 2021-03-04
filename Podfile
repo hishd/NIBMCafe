@@ -9,6 +9,7 @@ target 'NIBMCafe' do
 
 pod 'ListPlaceholder'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 pod 'Kingfisher'
 pod 'SwiftyJSON'
 pod "Connectivity"

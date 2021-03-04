@@ -79,7 +79,7 @@
                                                             <constraint firstAttribute="height" constant="45" id="Zfx-01-Tr9"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -98,7 +98,7 @@
                                                             <constraint firstAttribute="height" constant="45" id="dkh-GW-TIz"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -127,6 +127,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onSignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lUw-T0-V3F"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-OB-mDi">
                                                 <rect key="frame" x="87" y="621" width="201.5" height="26"/>
@@ -194,6 +197,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="txtEmail" destination="pPx-k0-wWg" id="wBH-9k-Z2x"/>
+                        <outlet property="txtPassword" destination="Vw7-Jd-sTe" id="Zki-fd-Pob"/>
                         <segue destination="6cG-aE-rPp" kind="presentation" identifier="launchToHomeSegue" modalPresentationStyle="fullScreen" id="53y-0S-LfX"/>
                     </connections>
                 </viewController>
@@ -391,7 +396,7 @@
                                                             <constraint firstAttribute="height" constant="45" id="SYW-wc-y41"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -410,7 +415,7 @@
                                                             <constraint firstAttribute="height" constant="45" id="cj7-Ma-pf3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -429,6 +434,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onSignUpClicked:" destination="GR6-W5-eWz" eventType="touchUpInside" id="zXO-xV-OLT"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oME-QN-8IY">
                                                 <rect key="frame" x="83.5" y="854" width="208.5" height="26"/>
@@ -500,6 +508,14 @@
                             <constraint firstItem="H6s-Zo-3m5" firstAttribute="leading" secondItem="EeB-Vd-3Ut" secondAttribute="leading" id="ePZ-vO-fvl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtConfirmPassword" destination="fmJ-4J-o70" id="DmL-vc-iJK"/>
+                        <outlet property="txtEmail" destination="gnz-iA-i7z" id="1yJ-Ev-bju"/>
+                        <outlet property="txtPassword" destination="z6k-8o-QNj" id="aN7-Ak-Ic9"/>
+                        <outlet property="txtPhoneNo" destination="shP-8O-8Aj" id="urP-g9-hlF"/>
+                        <outlet property="txtUserName" destination="6tF-tN-dGy" id="LMm-QS-ebc"/>
+                        <segue destination="hx4-Ko-B5o" kind="presentation" identifier="signUpToAllowLocation" modalPresentationStyle="fullScreen" id="dvx-v5-IGg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-3d-RIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

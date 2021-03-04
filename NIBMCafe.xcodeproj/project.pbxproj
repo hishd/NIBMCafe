@@ -14,6 +14,9 @@
 		4F31DB0725F127E6000043E1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB0625F127E6000043E1 /* SessionManager.swift */; };
 		4F31DB0A25F12892000043E1 /* PopUpAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB0925F12892000043E1 /* PopUpAlerts.swift */; };
 		4F31DB1E25F12BA7000043E1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */; };
+		4F31DB3925F12D2A000043E1 /* FirebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB3825F12D2A000043E1 /* FirebaseOP.swift */; };
+		4F31DB4F25F15F74000043E1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB4E25F15F74000043E1 /* BaseViewController.swift */; };
+		4F31DB7925F17197000043E1 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F31DB7825F17197000043E1 /* ProgressHUD.swift */; };
 		4F62C46C25EB7C63006F1537 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46A25EB7C63006F1537 /* CartItemCell.swift */; };
 		4F62C46D25EB7C63006F1537 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F62C46B25EB7C63006F1537 /* CartItemCell.xib */; };
 		4F62C47025EB8F45006F1537 /* CartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */; };
@@ -61,6 +64,9 @@
 		4F31DB0625F127E6000043E1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		4F31DB0925F12892000043E1 /* PopUpAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAlerts.swift; sourceTree = "<group>"; };
 		4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		4F31DB3825F12D2A000043E1 /* FirebaseOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseOP.swift; sourceTree = "<group>"; };
+		4F31DB4E25F15F74000043E1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4F31DB7825F17197000043E1 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		4F62C46A25EB7C63006F1537 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		4F62C46B25EB7C63006F1537 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
 		4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		4F31DAEF25F12132000043E1 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				4F31DB3825F12D2A000043E1 /* FirebaseOP.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -191,6 +198,7 @@
 		4FBD71AB25E95910005B4311 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4F31DB4E25F15F74000043E1 /* BaseViewController.swift */,
 				4FBD71C325E97E45005B4311 /* Main */,
 				4FBD71C225E97E3B005B4311 /* Home */,
 			);
@@ -274,6 +282,7 @@
 				4F31DB0625F127E6000043E1 /* SessionManager.swift */,
 				4F31DB0925F12892000043E1 /* PopUpAlerts.swift */,
 				4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */,
+				4F31DB7825F17197000043E1 /* ProgressHUD.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -421,9 +430,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */,
+				4F31DB7925F17197000043E1 /* ProgressHUD.swift in Sources */,
 				4F31DB0125F12357000043E1 /* TextFieldUtils.swift in Sources */,
+				4F31DB3925F12D2A000043E1 /* FirebaseOP.swift in Sources */,
 				4FBD71D225E985CC005B4311 /* EntityModel.swift in Sources */,
 				4FBD71C025E97DBB005B4311 /* RoundButton.swift in Sources */,
+				4F31DB4F25F15F74000043E1 /* BaseViewController.swift in Sources */,
 				4F62C47325EBFB6F006F1537 /* FoodDetailViewController.swift in Sources */,
 				4FBD71BD25E97162005B4311 /* CustomTextField.swift in Sources */,
 				4FFF67F225EFD955006ACC85 /* OrderSummaryCell.swift in Sources */,

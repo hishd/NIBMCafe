@@ -16,9 +16,7 @@ class NetworkMonitor {
     var delegate: NetworkListener?
     var connectivity = Connectivity()
     var isReachable: Bool { connectivity.isConnected }
-    
-    //New implementation using Connectivity module
-    
+        
     //start monitoring network events
     func startMonitoring() {
         connectivity.isPollingEnabled = true
