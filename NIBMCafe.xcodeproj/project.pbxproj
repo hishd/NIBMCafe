@@ -22,6 +22,8 @@
 		4F62C47025EB8F45006F1537 /* CartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */; };
 		4F62C47325EBFB6F006F1537 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */; };
 		4F7857ED25F276090064AC34 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */; };
+		4F78580A25F282F40064AC34 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78580925F282F40064AC34 /* RealmDB.swift */; };
+		4F78582625F299840064AC34 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78582525F299840064AC34 /* SplashViewController.swift */; };
 		4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */; };
 		4FA5CC7425EA9BD400488DB2 /* FoodItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */; };
 		4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C1C25E8E767002CE811 /* AppDelegate.swift */; };
@@ -73,6 +75,8 @@
 		4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewController.swift; sourceTree = "<group>"; };
 		4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		4F78580925F282F40064AC34 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
+		4F78582525F299840064AC34 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemCell.xib; sourceTree = "<group>"; };
 		4FB31C1925E8E767002CE811 /* NIBMCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +134,14 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		4F78580825F282E20064AC34 /* RealmDB */ = {
+			isa = PBXGroup;
+			children = (
+				4F78580925F282F40064AC34 /* RealmDB.swift */,
+			);
+			path = RealmDB;
+			sourceTree = "<group>";
+		};
 		4FB31C1025E8E766002CE811 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +163,7 @@
 		4FB31C1B25E8E767002CE811 /* NIBMCafe */ = {
 			isa = PBXGroup;
 			children = (
+				4F78580825F282E20064AC34 /* RealmDB */,
 				4F31DAEF25F12132000043E1 /* Firebase */,
 				4F31DAEC25F1209D000043E1 /* GoogleService-Info.plist */,
 				4FFF67D825EF3E79006ACC85 /* Util */,
@@ -245,6 +258,7 @@
 				4FBD71B525E96B37005B4311 /* SignUpViewController.swift */,
 				4FBD71B825E96B62005B4311 /* RequestLocationViewController.swift */,
 				4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */,
+				4F78582525F299840064AC34 /* SplashViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -435,6 +449,7 @@
 				4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */,
 				4F31DB7925F17197000043E1 /* ProgressHUD.swift in Sources */,
 				4F31DB0125F12357000043E1 /* TextFieldUtils.swift in Sources */,
+				4F78582625F299840064AC34 /* SplashViewController.swift in Sources */,
 				4F31DB3925F12D2A000043E1 /* FirebaseOP.swift in Sources */,
 				4FBD71D225E985CC005B4311 /* EntityModel.swift in Sources */,
 				4FBD71C025E97DBB005B4311 /* RoundButton.swift in Sources */,
@@ -448,6 +463,7 @@
 				4FB31C2125E8E767002CE811 /* SignInViewController.swift in Sources */,
 				4FFF67E425EF5001006ACC85 /* OrderCell.swift in Sources */,
 				4F31DB0725F127E6000043E1 /* SessionManager.swift in Sources */,
+				4F78580A25F282F40064AC34 /* RealmDB.swift in Sources */,
 				4F31DB1E25F12BA7000043E1 /* NetworkMonitor.swift in Sources */,
 				4FFF67DA25EF3E8D006ACC85 /* DoubleUtils.swift in Sources */,
 				4FBD71C525E97E5C005B4311 /* FoodViewController.swift in Sources */,

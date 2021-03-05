@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XkA-gq-gIy">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -30,6 +30,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1v-sf-jEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="677" y="-500"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="ovW-AE-3Sf">
+            <objects>
+                <viewController id="XkA-gq-gIy" customClass="SplashViewController" customModule="NIBMCafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Igf-CP-Bpv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0zp-U4-vet">
+                                <rect key="frame" x="67.5" y="269.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="7Cc-Sd-GiS"/>
+                                    <constraint firstAttribute="width" constant="240" id="E5F-sH-mQX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by NIBM, Computing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sE-aY-YPg">
+                                <rect key="frame" x="105.5" y="633" width="164.5" height="14"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                <color key="textColor" name="dark_gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3hq-ns-Fyg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0zp-U4-vet" firstAttribute="centerX" secondItem="Igf-CP-Bpv" secondAttribute="centerX" id="0K1-QX-zSg"/>
+                            <constraint firstItem="6sE-aY-YPg" firstAttribute="centerX" secondItem="Igf-CP-Bpv" secondAttribute="centerX" id="LfS-Pr-swf"/>
+                            <constraint firstItem="0zp-U4-vet" firstAttribute="centerY" secondItem="Igf-CP-Bpv" secondAttribute="centerY" id="Qpj-mv-ZF8"/>
+                            <constraint firstItem="3hq-ns-Fyg" firstAttribute="bottom" secondItem="6sE-aY-YPg" secondAttribute="bottom" constant="20" id="glw-9o-ScW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="splashToSignIn" modalPresentationStyle="fullScreen" id="pDw-LN-Aaa"/>
+                        <segue destination="6cG-aE-rPp" kind="presentation" identifier="splashToHome" modalPresentationStyle="fullScreen" id="BgQ-Ag-ahP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nq9-dc-yUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1153" y="-437"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -250,7 +290,7 @@
                                             <constraint firstAttribute="height" constant="45" id="rsG-IN-kKa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -569,6 +609,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onAllowLocationClicked:" destination="hx4-Ko-B5o" eventType="touchUpInside" id="BMb-PU-3xW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iTA-Ky-gRF"/>
@@ -598,7 +641,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="53y-0S-LfX"/>
+        <segue reference="BgQ-Ag-ahP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

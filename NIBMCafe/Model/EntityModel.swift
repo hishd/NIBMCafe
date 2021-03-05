@@ -45,6 +45,7 @@ struct FoodItem {
     var foodPrice: Double
     var discount: Int
     var foodImgRes: String
+    var foodCategory: String = ""
     var discountedPrice: Double {
         return foodPrice - (foodPrice * (Double(discount)/100))
     }

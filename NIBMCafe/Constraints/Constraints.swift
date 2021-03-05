@@ -12,6 +12,8 @@ struct StoryBoardSegues {
     static let signUpToAllowLocation = "signUpToAllowLocation"
     static let signUptoHomeSegue = "signUptoHomeSegue"
     static let homeToViewDetails = "homeToViewDetails"
+    static let splashToHome = "splashToHome"
+    static let splashToSignIn = "splashToSignIn"
 }
 
 //Name of the SessionVariables
@@ -33,6 +35,9 @@ struct FieldErrorCaptions {
     static let userSignInFailedError = "User sign in failed, please retry!"
     static let userSignInWithInvalidCredentials = "Invalid user credentials!"
     static let userResetPasswordFailed = "Failed to reset password!"
+    
+    static let noFoodItems = "No food Items found."
+    static let foodDataLoadFailed = "Could not load foods!"
 }
 
 struct InputErrorCaptions {
@@ -55,4 +60,14 @@ class UserKeys {
     class var email : String { return "email" }
     class var phoneNo : String { return "phoneNo" }
     class var password : String { return "password" }
+}
+
+class FoodKeys {
+    class var categoryName: String { return "categoryName" }
+    class var food_items: String { return "food_items" }
+    class var discount: String { return "discount" }
+    class var foodDescription: String { return "foodDescription" }
+    class var foodImgRes: String { return "foodImgRes" }
+    class var foodName: String { return "foodName" }
+    class var foodPrice: String { return "foodPrice" }
 }

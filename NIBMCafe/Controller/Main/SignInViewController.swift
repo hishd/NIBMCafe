@@ -14,6 +14,7 @@ class SignInViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         networkMonitor.delegate = self
         firebaseOP.delegate = self
         setTextDelegates()

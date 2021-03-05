@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FoodItemCell: UITableViewCell {
     
@@ -44,7 +45,8 @@ class FoodItemCell: UITableViewCell {
             lblDiscount.text = "\(foodItem.discount)% OFF"
         }
         
-        imgFood.image = UIImage(named: foodItem.foodImgRes)
+//        imgFood.image = UIImage(named: foodItem.foodImgRes)
+        imgFood.kf.setImage(with: URL(string: foodItem.foodImgRes))
         lblFoodName.text = foodItem.foodName
         lblFoodDescription.text = foodItem.foodDescription
         lblFoodPrice.text = "\(foodItem.discountedPrice.lkrString)"

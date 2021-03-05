@@ -187,6 +187,55 @@ class FirebaseOP {
         })
     }
     
+    func fetchAllFoodItems() {
+        self.getDBReference().child("food_category").observeSingleEvent(of: .value, with: {
+            snapshot in
+            if snapshot.hasChildren() {
+                
+                var categoryList: [FoodCategory] = []
+                var foodItemsList: [FoodItem] = []
+                
+                categoryList.append(FoodCategory(categoryName: "All", isSelected: true))
+                
+                if let data = snapshot.value as? [String: Any] {
+                    for category in data {
+                        guard let singleCategory = category.value as? [String: Any] else {
+                            NSLog("Could not serialize inner data : singleCategory")
+                            continue
+                        }
+                        categoryList.append(FoodCategory(categoryName: singleCategory[FoodKeys.categoryName] as! String, isSelected: false))
+                        if let foodItems = singleCategory[FoodKeys.food_items] as? [String : Any] {
+                            for foodItem in foodItems {
+                                guard let singleFoodItem = foodItem.value as? [String: Any] else {
+                                    NSLog("Could not serialize inner data : foodItems in loop")
+                                    continue
+                                }
+                                foodItemsList.append(FoodItem(
+                                                        foodName: singleFoodItem[FoodKeys.foodName] as! String,
+                                                        foodDescription: singleFoodItem[FoodKeys.foodDescription] as! String,
+                                                        foodPrice: singleFoodItem[FoodKeys.foodPrice] as! Double,
+                                                        discount: singleFoodItem[FoodKeys.discount] as! Int,
+                                                        foodImgRes: singleFoodItem[FoodKeys.foodImgRes] as! String,
+                                                        foodCategory: singleCategory[FoodKeys.categoryName] as! String))
+                            }
+                        } else {
+                            NSLog("Could not serialize inner data : foodItems")
+                            self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.foodDataLoadFailed)
+                        }
+                    }
+                    self.delegate?.onCategoriesLoaded(categories: categoryList)
+                    self.delegate?.onFoodItemsLoaded(foodItems: foodItemsList)
+                } else {
+                    NSLog("Could not serialize data")
+                    self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.foodDataLoadFailed)
+                }
+            } else {
+                NSLog("No food data found")
+                self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.noFoodItems)
+            }
+        })
+    }
+    
 }
 
 // MARK: - List of Protocol handlers
@@ -204,6 +253,10 @@ protocol FirebaseActions {
     
     func onResetPasswordEmailSent()
     func onResetPasswordEmailSentFailed(error: String)
+    
+    func onCategoriesLoaded(categories: [FoodCategory])
+    func onFoodItemsLoaded(foodItems: [FoodItem])
+    func onFoodItemsLoadFailed(error: String)
     
     func onOperationsCancelled()
 }
@@ -223,6 +276,10 @@ extension FirebaseActions {
     
     func onResetPasswordEmailSent(){}
     func onResetPasswordEmailSentFailed(error: String){}
+    
+    func onCategoriesLoaded(categories: [FoodCategory]) {}
+    func onFoodItemsLoaded(foodItems: [FoodItem]) {}
+    func onFoodItemsLoadFailed(error: String) {}
     
     func onOperationsCancelled(){}
 }

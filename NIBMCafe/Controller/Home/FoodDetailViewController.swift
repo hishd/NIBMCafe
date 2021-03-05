@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FoodDetailViewController: UIViewController {
 
@@ -83,7 +84,8 @@ class FoodDetailViewController: UIViewController {
             lblDiscount.text = "\(foodItem.discount)% OFF"
         }
         
-        imgFood.image = UIImage(named: foodItem.foodImgRes)
+        imgFood.kf.setImage(with: URL(string: foodItem.foodImgRes))
+//        imgFood.image = UIImage(named: foodItem.foodImgRes)
         lblFoodName.text = foodItem.foodName
         lblFoodDescription.text = foodItem.foodDescription
         lblTotalAmount.text = "\(foodItem.foodPrice.lkrString)"

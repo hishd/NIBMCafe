@@ -15,5 +15,7 @@ pod 'SwiftyJSON'
 pod "Connectivity"
 pod 'Loaf'
 pod 'lottie-ios'
+pod 'RealmSwift'
+pod 'IQKeyboardManagerSwift'
 
 end

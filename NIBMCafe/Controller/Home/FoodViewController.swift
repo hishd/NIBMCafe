@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoodViewController: UIViewController {
+class FoodViewController: BaseViewController {
     
     @IBOutlet weak var btnCart: UIButton!
     @IBOutlet weak var collectionViewCategories: UICollectionView!
@@ -16,35 +16,50 @@ class FoodViewController: UIViewController {
     var selectedCategoryIndex: Int = 0
     var selectedFoodIndex: Int = 0
     
-    var categories: [FoodCategory] = [
-        FoodCategory(categoryName: "All", isSelected: true),
-        FoodCategory(categoryName: "Pasta", isSelected: false),
-        FoodCategory(categoryName: "Drinks", isSelected: false),
-        FoodCategory(categoryName: "Beverages", isSelected: false),
-        FoodCategory(categoryName: "Deserts", isSelected: false)
-    ]
+    var categories: [FoodCategory] = []
+    var foodItemList: [FoodItem] = []
     
-    let foodItems: [FoodItem] = [
-        FoodItem(foodName: "Chicken Burger", foodDescription: "Chicken patty hamburger", foodPrice: 1500.00, discount: 30, foodImgRes: "burger"),
-        FoodItem(foodName: "French Fries", foodDescription: "Deep fried French fries", foodPrice: 750.00, discount: 0, foodImgRes: "fries"),
-        FoodItem(foodName: "Vegan Salad", foodDescription: "Half boiled vegetable salad", foodPrice: 1150.00, discount: 10, foodImgRes: "salad"),
-        FoodItem(foodName: "Chicken Shawarma", foodDescription: "Devilled Chicken Shawarma", foodPrice: 1250.00, discount: 12, foodImgRes: "shawarma"),
-        FoodItem(foodName: "Crispy Chicken", foodDescription: "Deep fried crispy chicken", foodPrice: 1800.00, discount: 20, foodImgRes: "chicken"),
-        FoodItem(foodName: "Coffee", foodDescription: "Hot black Coffee", foodPrice: 150.00, discount: 0, foodImgRes: "coffee")
-    ]
+    var filteredFood: [FoodItem] = []
+    
+//    var categories: [FoodCategory] = [
+//        FoodCategory(categoryName: "All", isSelected: true),
+//        FoodCategory(categoryName: "Pasta", isSelected: false),
+//        FoodCategory(categoryName: "Drinks", isSelected: false),
+//        FoodCategory(categoryName: "Beverages", isSelected: false),
+//        FoodCategory(categoryName: "Deserts", isSelected: false)
+//    ]
+//
+//    var foodItems: [FoodItem] = [
+//        FoodItem(foodName: "Chicken Burger", foodDescription: "Chicken patty hamburger", foodPrice: 1500.00, discount: 30, foodImgRes: "burger"),
+//        FoodItem(foodName: "French Fries", foodDescription: "Deep fried French fries", foodPrice: 750.00, discount: 0, foodImgRes: "fries"),
+//        FoodItem(foodName: "Vegan Salad", foodDescription: "Half boiled vegetable salad", foodPrice: 1150.00, discount: 10, foodImgRes: "salad"),
+//        FoodItem(foodName: "Chicken Shawarma", foodDescription: "Devilled Chicken Shawarma", foodPrice: 1250.00, discount: 12, foodImgRes: "shawarma"),
+//        FoodItem(foodName: "Crispy Chicken", foodDescription: "Deep fried crispy chicken", foodPrice: 1800.00, discount: 20, foodImgRes: "chicken"),
+//        FoodItem(foodName: "Coffee", foodDescription: "Hot black Coffee", foodPrice: 150.00, discount: 0, foodImgRes: "coffee")
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkMonitor.delegate = self
+        firebaseOP.delegate = self
+        
         btnCart.generateRoundButton()
         registerNIB()
         
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        firebaseOP.delegate = self
+        networkMonitor.delegate = self
+        firebaseOP.fetchAllFoodItems()
+        displayProgress()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == StoryBoardSegues.homeToViewDetails {
             let destVC = segue.destination as! FoodDetailViewController
-            destVC.foodItem = foodItems[selectedFoodIndex]
+            destVC.foodItem = filteredFood[selectedFoodIndex]
         }
     }
     
@@ -70,6 +85,22 @@ class FoodViewController: UIViewController {
     
 }
 
+// MARK: - In class methods
+
+extension FoodViewController {
+    func filterFood(foodCategory: String) {
+        filteredFood.removeAll()
+        filteredFood = foodItemList.filter { $0.foodCategory == foodCategory }
+        tblViewFood.reloadData()
+    }
+    
+    func displayAllFood() {
+        filteredFood.removeAll()
+        filteredFood.append(contentsOf: foodItemList)
+        tblViewFood.reloadData()
+    }
+}
+
 // MARK: - UICollectionView protocol Methods
 
 extension FoodViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -92,6 +123,12 @@ extension FoodViewController : UICollectionViewDataSource, UICollectionViewDeleg
         categories[indexPath.row].isSelected = true
         UIView.transition(with: collectionViewCategories, duration: 0.3, options: .transitionCrossDissolve, animations: {self.collectionViewCategories.reloadData()}, completion: nil)
         
+        if indexPath.row == 0 {
+            displayAllFood()
+            return
+        }
+        
+        filterFood(foodCategory: categories[indexPath.row].categoryName)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -114,13 +151,13 @@ extension FoodViewController : UICollectionViewDataSource, UICollectionViewDeleg
 
 extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodItems.count
+        return filteredFood.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblViewFood.dequeueReusableCell(withIdentifier: FoodItemCell.reuseIdentifier, for: indexPath) as! FoodItemCell
         cell.selectionStyle = .none
-        cell.configureCell(foodItem: foodItems[indexPath.row])
+        cell.configureCell(foodItem: filteredFood[indexPath.row])
         return cell
     }
     
@@ -131,10 +168,31 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row), usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1,
+        UIView.animate(withDuration: 1.0, delay: 0.01 * Double(indexPath.row), usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1,
                        options: .curveEaseIn, animations: {
                         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
                        })
+    }
+}
+
+extension FoodViewController : FirebaseActions {
+    func onCategoriesLoaded(categories: [FoodCategory]) {
+        dismissProgress()
+        self.categories.removeAll()
+        self.categories.append(contentsOf: categories)
+        self.collectionViewCategories.reloadData()
+    }
+    func onFoodItemsLoaded(foodItems: [FoodItem]) {
+        dismissProgress()
+        foodItemList.removeAll()
+        filteredFood.removeAll()
+        self.foodItemList.append(contentsOf: foodItems)
+        self.filteredFood.append(contentsOf: foodItemList)
+        self.tblViewFood.reloadData()
+    }
+    func onFoodItemsLoadFailed(error: String) {
+        dismissProgress()
+        displayErrorMessage(message: error)
     }
 }
 
