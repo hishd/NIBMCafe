@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="-342" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--Reset Password View Controller-->
         <scene sceneID="t05-qX-OlP">
             <objects>
-                <viewController id="Ucy-CD-QmX" sceneMemberID="viewController">
+                <viewController id="Ucy-CD-QmX" customClass="ResetPasswordViewController" customModule="NIBMCafe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nXU-CH-fU5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,6 +269,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onResetPasswordPressed:" destination="Ucy-CD-QmX" eventType="touchUpInside" id="j13-PK-0tF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hvi-w9-w8L"/>
@@ -286,6 +289,9 @@
                             <constraint firstItem="jdh-y5-Zpi" firstAttribute="top" secondItem="Ye7-YH-H5o" secondAttribute="bottom" constant="60" id="vvJ-OO-EHx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtEmail" destination="7zn-N1-VL7" id="0GP-k9-dpe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eo-yK-9Gy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

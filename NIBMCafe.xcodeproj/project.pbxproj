@@ -21,6 +21,7 @@
 		4F62C46D25EB7C63006F1537 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F62C46B25EB7C63006F1537 /* CartItemCell.xib */; };
 		4F62C47025EB8F45006F1537 /* CartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */; };
 		4F62C47325EBFB6F006F1537 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */; };
+		4F7857ED25F276090064AC34 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */; };
 		4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */; };
 		4FA5CC7425EA9BD400488DB2 /* FoodItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */; };
 		4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C1C25E8E767002CE811 /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		4F62C46B25EB7C63006F1537 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
 		4F62C46F25EB8F45006F1537 /* CartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewController.swift; sourceTree = "<group>"; };
 		4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemCell.xib; sourceTree = "<group>"; };
 		4FB31C1925E8E767002CE811 /* NIBMCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,7 @@
 				4FB31C2025E8E767002CE811 /* SignInViewController.swift */,
 				4FBD71B525E96B37005B4311 /* SignUpViewController.swift */,
 				4FBD71B825E96B62005B4311 /* RequestLocationViewController.swift */,
+				4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				4F31DB1E25F12BA7000043E1 /* NetworkMonitor.swift in Sources */,
 				4FFF67DA25EF3E8D006ACC85 /* DoubleUtils.swift in Sources */,
 				4FBD71C525E97E5C005B4311 /* FoodViewController.swift in Sources */,
+				4F7857ED25F276090064AC34 /* ResetPasswordViewController.swift in Sources */,
 				4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */,
 				4FFF67DD25EF4C82006ACC85 /* RoundImage.swift in Sources */,
 				4FB31C1F25E8E767002CE811 /* SceneDelegate.swift in Sources */,

@@ -163,6 +163,30 @@ class FirebaseOP {
         })
     }
     
+    func sendResetPasswordRequest(email: String) {
+        self.checkExistingUser(email: email, completion: {
+            userExistance, result, data in
+            
+            if !userExistance {
+                self.delegate?.onResetPasswordEmailSentFailed(error: FieldErrorCaptions.userNotRegisteredError)
+                return
+            }
+            
+            Auth.auth().sendPasswordReset(withEmail: email, completion: {
+                error in
+                
+                if let error = error {
+                    NSLog(error.localizedDescription)
+                    self.delegate?.onResetPasswordEmailSentFailed(error: FieldErrorCaptions.userResetPasswordFailed)
+                    return
+                }
+                
+                self.delegate?.onResetPasswordEmailSent()
+            })
+            
+        })
+    }
+    
 }
 
 // MARK: - List of Protocol handlers
@@ -177,6 +201,9 @@ protocol FirebaseActions {
     func onUserSignInSuccess(user: User?)
     func onUserSignInFailedWithError(error: Error)
     func onUserSignInFailedWithError(error: String)
+    
+    func onResetPasswordEmailSent()
+    func onResetPasswordEmailSentFailed(error: String)
     
     func onOperationsCancelled()
 }
@@ -193,6 +220,9 @@ extension FirebaseActions {
     func onUserSignInSuccess(user: User?){}
     func onUserSignInFailedWithError(error: Error){}
     func onUserSignInFailedWithError(error: String){}
+    
+    func onResetPasswordEmailSent(){}
+    func onResetPasswordEmailSentFailed(error: String){}
     
     func onOperationsCancelled(){}
 }

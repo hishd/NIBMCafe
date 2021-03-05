@@ -32,6 +32,7 @@ struct FieldErrorCaptions {
     static let userNotRegisteredError = "The user does not exists!"
     static let userSignInFailedError = "User sign in failed, please retry!"
     static let userSignInWithInvalidCredentials = "Invalid user credentials!"
+    static let userResetPasswordFailed = "Failed to reset password!"
 }
 
 struct InputErrorCaptions {
