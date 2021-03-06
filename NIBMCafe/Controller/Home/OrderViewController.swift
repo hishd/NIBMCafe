@@ -7,32 +7,52 @@
 
 import UIKit
 
-class OrderViewController: UIViewController {
+class OrderViewController: BaseViewController {
     
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var tblOrders: UITableView!
     
+    @IBOutlet weak var segmentOrderType: UISegmentedControl!
     let calendar = Calendar(identifier: .gregorian)
     
-    let fetchedOrders: [Order] = [
-        Order(orderID: "#1290", orderStatus: .ORDER_COMPLETED, orderStatusString: "Completed", orderDate: DateUtil.getDate(date: "03-03-2021 05:35"), itemCount: 2, orderTotal: 1500.00),
-        Order(orderID: "#1324", orderStatus: .ORDER_READY, orderStatusString: "Ready to Pick Up", orderDate: DateUtil.getDate(date: "03-03-2021 05:35"), itemCount: 5, orderTotal: 1800.00),
-        Order(orderID: "#1567", orderStatus: .ORDER_PENDING, orderStatusString: "10 Minutes Left", orderDate: DateUtil.getDate(date: "03-03-2021 05:35"), itemCount: 3, orderTotal: 1250.00)
-    ]
+    var fetchedOrders: [Order] = []
+    
+//    let fetchedOrders: [Order] = [
+//        Order(orderID: "#1290", orderStatusCode: 0, orderStatusString: "Completed", orderDate: DateUtil.getDate(date: "03-03-2021 05:35"), itemCount: 2, orderTotal: 1500.00),
+//        Order(orderID: "#1324", orderStatusCode: 1, orderStatusString: "Ready to Pick Up", orderDate: DateUtil.getDate(date: "03-03-2021 05:35"), itemCount: 5, orderTotal: 1800.00),
+//        Order(orderID: "#1567", orderStatusCode: 2, orderStatusString: "10 Minutes Left", orderDate: DateUtil.getDate(date: "03-03-2021 05:35"), itemCount: 3, orderTotal: 1250.00)
+//    ]
     
     var filteredOrders: [Order] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNIB()
-        // Do any additional setup after loading the view.
+        networkMonitor.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        networkMonitor.delegate = self
+        firebaseOP.delegate = self
         imgProfile.generateRoundImage()
-        filteredOrders.removeAll()
-        filteredOrders.append(contentsOf: fetchedOrders)
-        tblOrders.reloadData()
+        
+        if #available(iOS 10.0, *) {
+            tblOrders.refreshControl = refreshControl
+        } else {
+            tblOrders.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshOrderData), for: .valueChanged)
+        
+//        filteredOrders.removeAll()
+////        filteredOrders.append(contentsOf: fetchedOrders)
+////        tblOrders.reloadData()
+        
+        guard let email = SessionManager.getUserSesion()?.email else {
+            return
+        }
+        displayProgress()
+        firebaseOP.getAllOrders(email: email)
     }
     
     
@@ -60,6 +80,13 @@ class OrderViewController: UIViewController {
     
     func registerNIB() {
         tblOrders.register(UINib(nibName: OrderCell.nibName, bundle: nil), forCellReuseIdentifier: OrderCell.reuseIdentifier)
+    }
+    
+    @objc func refreshOrderData() {
+        guard let email = SessionManager.getUserSesion()?.email else {
+            return
+        }
+        firebaseOP.getAllOrders(email: email)
     }
     
     /*
@@ -92,5 +119,23 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
                        options: .curveEaseIn, animations: {
                         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
                        })
+    }
+}
+
+extension OrderViewController : FirebaseActions {
+    func onAllOrdersLoaded(orderedList: [Order]) {
+        refreshControl.endRefreshing()
+        dismissProgress()
+        fetchedOrders.removeAll()
+        filteredOrders.removeAll()
+        fetchedOrders.append(contentsOf: orderedList)
+        filteredOrders.append(contentsOf: orderedList)
+        tblOrders.reloadData()
+        onOrderTypeChanged(self.segmentOrderType)
+    }
+    func onAllOrdersLoadFailed(error: String) {
+        refreshControl.endRefreshing()
+        dismissProgress()
+        displayErrorMessage(message: error)
     }
 }

@@ -45,13 +45,20 @@ class FoodViewController: BaseViewController {
         
         btnCart.generateRoundButton()
         registerNIB()
-        
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         firebaseOP.delegate = self
         networkMonitor.delegate = self
+        
+        if #available(iOS 10.0, *) {
+            tblViewFood.refreshControl = refreshControl
+        } else {
+            tblViewFood.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshFoodData), for: .valueChanged)
+        
         firebaseOP.fetchAllFoodItems()
         displayProgress()
     }
@@ -72,6 +79,9 @@ class FoodViewController: BaseViewController {
         tblViewFood.register(UINib(nibName: FoodItemCell.nibName, bundle: nil), forCellReuseIdentifier: FoodItemCell.reuseIdentifier)
     }
     
+    @objc func refreshFoodData() {
+        firebaseOP.fetchAllFoodItems()
+    }
     
     /*
      // MARK: - Navigation
@@ -168,7 +178,7 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-        UIView.animate(withDuration: 1.0, delay: 0.01 * Double(indexPath.row), usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1,
+        UIView.animate(withDuration: 0.5, delay: 0.01 * Double(indexPath.row), usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1,
                        options: .curveEaseIn, animations: {
                         cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
                        })
@@ -177,12 +187,14 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension FoodViewController : FirebaseActions {
     func onCategoriesLoaded(categories: [FoodCategory]) {
+        refreshControl.endRefreshing()
         dismissProgress()
         self.categories.removeAll()
         self.categories.append(contentsOf: categories)
         self.collectionViewCategories.reloadData()
     }
     func onFoodItemsLoaded(foodItems: [FoodItem]) {
+        refreshControl.endRefreshing()
         dismissProgress()
         foodItemList.removeAll()
         filteredFood.removeAll()
@@ -191,6 +203,7 @@ extension FoodViewController : FirebaseActions {
         self.tblViewFood.reloadData()
     }
     func onFoodItemsLoadFailed(error: String) {
+        refreshControl.endRefreshing()
         dismissProgress()
         displayErrorMessage(message: error)
     }

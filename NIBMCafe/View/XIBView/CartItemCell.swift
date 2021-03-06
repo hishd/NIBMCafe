@@ -45,7 +45,8 @@ class CartItemCell: UITableViewCell {
     }
     
     func configureCell(cartItem: CartItem) {
-        imgFoodItem.image = UIImage(named: cartItem.itemImgRes)
+        imgFoodItem.kf.setImage(with: URL(string: cartItem.itemImgRes))
+//        imgFoodItem.image = UIImage(named: cartItem.itemImgRes)
         lblItemName.text = cartItem.itemName
         lblItemPrice.text = "\(cartItem.itemTotal.lkrString)"
         lblItemCount.text = "\(cartItem.itemCount)"

@@ -66,7 +66,7 @@ extension ResetPasswordViewController : UITextFieldDelegate {
 extension ResetPasswordViewController : FirebaseActions {
     func onResetPasswordEmailSent() {
         dismissProgress()
-        displaySuccessMessage(message: "Email sent, please check inbox!")
+        displaySuccessMessage(message: "Email sent, please check inbox!", completion: nil)
     }
     func onResetPasswordEmailSentFailed(error: String) {
         dismissProgress()

@@ -85,6 +85,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lblDate" destination="LDG-k4-Jez" id="n4s-DD-oyf"/>
                 <outlet property="lblItemInfo" destination="P2Y-Bu-9KR" id="EsC-dQ-WvY"/>
                 <outlet property="lblItemNames" destination="cht-ug-mdW" id="YDT-yi-gUf"/>
                 <outlet property="lblTotalAmount" destination="yon-x7-Cib" id="iQ0-x6-LOc"/>

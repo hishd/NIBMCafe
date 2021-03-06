@@ -16,6 +16,10 @@ class BaseViewController: UIViewController, NetworkListener {
     var firebaseOP = FirebaseOP.instance
     
     var progressHUD: ProgressHUD!
+    
+    let refreshControl = UIRefreshControl()
+    
+    var alertController: UIAlertController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +36,35 @@ class BaseViewController: UIViewController, NetworkListener {
     }
     
     func displayErrorMessage(message: String) {
-        Loaf(message, state: .error, sender: self).show()
+        Loaf(message, state: .error, sender: self).show(.short)
     }
     
-    func displaySuccessMessage(message: String) {
-        Loaf(message, state: .success, sender: self).show()
+    func displaySuccessMessage(message: String, completion: (() -> Void)?) {
+        Loaf(message, state: .success, sender: self).show(.short) {
+            dismissal in
+            if let completion  = completion {
+                completion()
+            }
+        }
     }
     
     func displayInfoMessage(message: String) {
-        Loaf(message, state: .info, sender: self).show()
+        Loaf(message, state: .info, sender: self).show(.short)
     }
     
     func displayWarningMessage(message: String) {
-        Loaf(message, state: .warning, sender: self).show()
+        Loaf(message, state: .warning, sender: self).show(.short)
+    }
+    
+    func displayActionSheet(title: String, message: String, positiveTitle: String, negativeTitle: String, positiveHandler: @escaping (UIAlertAction) -> Void, negativeHandler: @escaping (UIAlertAction) -> Void) {
+        if alertController == nil {
+            alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        }
+        alertController.title = title
+        alertController.message = message
+        alertController.addAction(UIAlertAction(title: positiveTitle, style: .default, handler: positiveHandler))
+        alertController.addAction(UIAlertAction(title: negativeTitle, style: .destructive, handler: negativeHandler))
+        self.present(alertController, animated: true, completion: nil)
     }
     
 

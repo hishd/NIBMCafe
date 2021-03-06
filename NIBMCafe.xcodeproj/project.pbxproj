@@ -24,6 +24,9 @@
 		4F7857ED25F276090064AC34 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */; };
 		4F78580A25F282F40064AC34 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78580925F282F40064AC34 /* RealmDB.swift */; };
 		4F78582625F299840064AC34 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78582525F299840064AC34 /* SplashViewController.swift */; };
+		4F78583F25F2D5530064AC34 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78583E25F2D5530064AC34 /* DateExtension.swift */; };
+		4F78584225F3366F0064AC34 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78584125F3366F0064AC34 /* UpdateProfileViewController.swift */; };
+		4F78584525F33ADB0064AC34 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F78584425F33ADB0064AC34 /* UpdatePasswordViewController.swift */; };
 		4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */; };
 		4FA5CC7425EA9BD400488DB2 /* FoodItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */; };
 		4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB31C1C25E8E767002CE811 /* AppDelegate.swift */; };
@@ -77,6 +80,9 @@
 		4F7857EC25F276090064AC34 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		4F78580925F282F40064AC34 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		4F78582525F299840064AC34 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		4F78583E25F2D5530064AC34 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		4F78584125F3366F0064AC34 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		4F78584425F33ADB0064AC34 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		4FA5CC7125EA9BD400488DB2 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		4FA5CC7225EA9BD400488DB2 /* FoodItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemCell.xib; sourceTree = "<group>"; };
 		4FB31C1925E8E767002CE811 /* NIBMCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NIBMCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +253,8 @@
 				4F62C47225EBFB6F006F1537 /* FoodDetailViewController.swift */,
 				4FFF67DF25EF4E00006ACC85 /* OrderViewController.swift */,
 				4FFF67ED25EFD764006ACC85 /* ProfileViewController.swift */,
+				4F78584125F3366F0064AC34 /* UpdateProfileViewController.swift */,
+				4F78584425F33ADB0064AC34 /* UpdatePasswordViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -300,6 +308,7 @@
 				4F31DB0925F12892000043E1 /* PopUpAlerts.swift */,
 				4F31DB1D25F12BA7000043E1 /* NetworkMonitor.swift */,
 				4F31DB7825F17197000043E1 /* ProgressHUD.swift */,
+				4F78583E25F2D5530064AC34 /* DateExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -446,7 +455,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F78584525F33ADB0064AC34 /* UpdatePasswordViewController.swift in Sources */,
 				4FA5CC7325EA9BD400488DB2 /* FoodItemCell.swift in Sources */,
+				4F78583F25F2D5530064AC34 /* DateExtension.swift in Sources */,
 				4F31DB7925F17197000043E1 /* ProgressHUD.swift in Sources */,
 				4F31DB0125F12357000043E1 /* TextFieldUtils.swift in Sources */,
 				4F78582625F299840064AC34 /* SplashViewController.swift in Sources */,
@@ -466,6 +477,7 @@
 				4F78580A25F282F40064AC34 /* RealmDB.swift in Sources */,
 				4F31DB1E25F12BA7000043E1 /* NetworkMonitor.swift in Sources */,
 				4FFF67DA25EF3E8D006ACC85 /* DoubleUtils.swift in Sources */,
+				4F78584225F3366F0064AC34 /* UpdateProfileViewController.swift in Sources */,
 				4FBD71C525E97E5C005B4311 /* FoodViewController.swift in Sources */,
 				4F7857ED25F276090064AC34 /* ResetPasswordViewController.swift in Sources */,
 				4FB31C1D25E8E767002CE811 /* AppDelegate.swift in Sources */,

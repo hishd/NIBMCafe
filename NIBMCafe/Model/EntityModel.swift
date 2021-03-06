@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 
 struct User: Codable {
@@ -14,13 +15,15 @@ struct User: Codable {
     var email: String?
     var phoneNo: String?
     var password: String?
+    var imageRes: String?
     
-    init(_id: String?, userName: String?, email: String?, phoneNo: String?, password: String?) {
+    init(_id: String?, userName: String?, email: String?, phoneNo: String?, password: String?, imageRes: String?) {
         self._id = _id
         self.userName = userName
         self.email = email
         self.phoneNo = phoneNo
         self.password = password
+        self.imageRes = imageRes
     }
     
     init(from decoder: Decoder) throws {
@@ -30,6 +33,7 @@ struct User: Codable {
         self.email = try container.decodeIfPresent(String.self, forKey: .email)
         self.phoneNo = try container.decodeIfPresent(String.self, forKey: .phoneNo)
         self.password = try container.decodeIfPresent(String.self, forKey: .password)
+        self.imageRes = try container.decodeIfPresent(String.self, forKey: .imageRes)
     }
 }
 
@@ -51,12 +55,12 @@ struct FoodItem {
     }
 }
 
-struct CartItem {
-    var itemName: String
-    var itemImgRes: String
-    var discount: Int
-    var itemPrice: Double
-    var itemCount: Int
+class CartItem: Object {
+    @objc dynamic var itemName: String = ""
+    @objc dynamic var itemImgRes: String = ""
+    @objc dynamic var discount: Int = 0
+    @objc dynamic var itemPrice: Double = 0
+    @objc dynamic var itemCount: Int = 0
     var itemTotal: Double {
         return Double(itemCount) *  discountedPrice
     }
@@ -66,12 +70,22 @@ struct CartItem {
 }
 
 struct Order {
-    var orderID: String
-    var orderStatus: OrderStatus
-    var orderStatusString: String
-    var orderDate: Date
-    var itemCount: Int
-    var orderTotal: Double
+    var orderID: String = ""
+    var orderStatus: OrderStatus {
+        if orderStatusCode == 0 {
+            return .ORDER_PENDING
+        }
+        if orderStatusCode == 1 {
+            return .ORDER_READY
+        }
+        return .ORDER_COMPLETED
+    }
+    //0 = Pending Order | 1 = Order ready | 2 = completed
+    var orderStatusCode: Int = 0
+    var orderStatusString: String = ""
+    var orderDate: Date = Date()
+    var itemCount: Int = 0
+    var orderTotal: Double = 0
     var orderItems: [OrderItem] = []
 }
 

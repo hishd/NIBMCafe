@@ -78,7 +78,7 @@ class SignUpViewController: BaseViewController {
                                                 userName: txtUserName.text!,
                                                 email: txtEmail.text!,
                                                 phoneNo: txtPhoneNo.text!,
-                                                password: txtPassword.text!))
+                                                password: txtPassword.text!, imageRes: ""))
     }
     
     /*
@@ -112,7 +112,7 @@ extension SignUpViewController : UITextFieldDelegate {
 extension SignUpViewController : FirebaseActions {
     func isSignUpSuccessful(user: User?) {
         dismissProgress()
-        displaySuccessMessage(message: "Regisration Successful!")
+        displaySuccessMessage(message: "Regisration Successful!", completion: nil)
         if let user = user {
             self.performSegue(withIdentifier: StoryBoardSegues.signUpToAllowLocation, sender: nil)
             SessionManager.saveUserSession(user)

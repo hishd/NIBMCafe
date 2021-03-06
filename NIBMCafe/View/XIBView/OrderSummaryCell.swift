@@ -9,6 +9,7 @@ import UIKit
 
 class OrderSummaryCell: UITableViewCell {
     
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblItemNames: UILabel!
     @IBOutlet weak var lblItemInfo: UILabel!
     @IBOutlet weak var lblTotalAmount: UILabel!
@@ -42,10 +43,11 @@ class OrderSummaryCell: UITableViewCell {
                 
         for item in order.orderItems {
             foodNames += "\n\(item.foodItem.foodName)"
-            orderInfo += "\n\(item.qty) X RS. \(item.foodItem.discountedPrice)"
+            orderInfo += "\n\(item.qty) X \(item.foodItem.discountedPrice.lkrString)"
             totalAmount += Double(item.qty) * item.foodItem.discountedPrice
         }
         
+        lblDate.text = DateUtil.getDate(date: order.orderDate)
         lblItemNames.text = foodNames
         lblItemInfo.text = orderInfo
         lblTotalAmount.text = "Total : \(totalAmount.lkrString)"

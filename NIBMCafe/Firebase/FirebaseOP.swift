@@ -6,9 +6,9 @@
 //
 
 /**
-    Utility class to perform the firebase operations such as
-        - RealtimeDB Operations
-        - Firebase Authentication Operations
+ Utility class to perform the firebase operations such as
+ - RealtimeDB Operations
+ - Firebase Authentication Operations
  */
 
 import Foundation
@@ -67,7 +67,6 @@ class FirebaseOP {
     }
     
     fileprivate func createUserOnDB(user: User, completion: @escaping (Bool, String?, User?) -> Void) {
-        
         guard let userName = user.userName, let email = user.email, let phoneNo = user.phoneNo else {
             NSLog("Empty params found on user instance")
             completion(false, "Empty params found on user instance", user)
@@ -84,14 +83,14 @@ class FirebaseOP {
             .child("users")
             .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
             .setValue(data) {
-            (error:Error?, ref:DatabaseReference) in
-            if let error = error {
-                completion(false, "Failed to create user", user)
-                NSLog(error.localizedDescription)
-            } else {
-                completion(true, nil, user)
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    completion(false, "Failed to create user", user)
+                    NSLog(error.localizedDescription)
+                } else {
+                    completion(true, nil, user)
+                }
             }
-        }
     }
     
     func registerUser(user: User) {
@@ -149,7 +148,7 @@ class FirebaseOP {
                                                                 userName: userData[UserKeys.userName] as? String,
                                                                 email: userData[UserKeys.email] as? String,
                                                                 phoneNo: userData[UserKeys.phoneNo] as? String,
-                                                                password: userData[UserKeys.password] as? String))
+                                                                password: userData[UserKeys.password] as? String, imageRes: ""))
                         } else {
                             NSLog("Unable to serialize user data")
                             self.delegate?.onUserSignInFailedWithError(error: FieldErrorCaptions.userSignInFailedError)
@@ -223,8 +222,9 @@ class FirebaseOP {
                             self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.foodDataLoadFailed)
                         }
                     }
+                    //                    let sortedFood = foodItemsList.sorted { $0.foodName < $1.foodName }
                     self.delegate?.onCategoriesLoaded(categories: categoryList)
-                    self.delegate?.onFoodItemsLoaded(foodItems: foodItemsList)
+                    self.delegate?.onFoodItemsLoaded(foodItems: foodItemsList.sorted { $0.foodName < $1.foodName })
                 } else {
                     NSLog("Could not serialize data")
                     self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.foodDataLoadFailed)
@@ -232,6 +232,144 @@ class FirebaseOP {
             } else {
                 NSLog("No food data found")
                 self.delegate?.onFoodItemsLoadFailed(error: FieldErrorCaptions.noFoodItems)
+            }
+        })
+    }
+    
+    func placeFoodOrder(order: Order, email: String) {
+        
+        var foodItems : [String: [String : Any]] = [:]
+        for i in 0..<order.orderItems.count {
+            foodItems[String(i)] = [
+                FoodKeys.foodName : order.orderItems[i].foodItem.foodName,
+                FoodKeys.foodPrice : order.orderItems[i].foodItem.discountedPrice,
+                OrderKeys.itemCount : order.orderItems[i].qty
+            ]
+        }
+        
+        let data = [
+            OrderKeys.orderStatusCode : order.orderStatusCode,
+            OrderKeys.orderStatusString : order.orderStatusString,
+            OrderKeys.orderDate : order.orderDate.currentTimeMillis(),
+            OrderKeys.itemCount : order.itemCount,
+            OrderKeys.orderTotal : order.orderTotal,
+            OrderKeys.orderItems : foodItems,
+        ] as [String : Any]
+        
+        self.getDBReference().child("orders")
+            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+            .childByAutoId()
+            .setValue(data) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    self.delegate?.onOrderPlaceFailedWithError(error: FieldErrorCaptions.orderPlacingError)
+                    NSLog(error.localizedDescription)
+                } else {
+                    self.delegate?.onOrderPlaced()
+                }
+            }
+    }
+    
+    func getAllOrders(email: String) {
+        self.getDBReference().child("orders")
+            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+            .observeSingleEvent(of: .value, with: {
+                snapshot in
+                if snapshot.hasChildren() {
+                    var orderedList: [Order] = []
+                    if let data = snapshot.value as? [String: Any] {
+                        for singleOrder in data {
+                            guard let orderData = singleOrder.value as? [String: Any] else {
+                                NSLog("Could not serialize inner data : singleOrder")
+                                continue
+                            }
+                            var order = Order()
+                            order.orderID = "\(orderData[OrderKeys.orderDate] as! Int64)"
+                            order.itemCount = orderData[OrderKeys.itemCount] as! Int
+                            order.orderDate = Date().getDateFromMills(dateInMills: orderData[OrderKeys.orderDate] as! Int64)
+                            order.orderStatusCode = orderData[OrderKeys.orderStatusCode] as! Int
+                            order.orderStatusString = orderData[OrderKeys.orderStatusString] as! String
+                            order.orderTotal = orderData[OrderKeys.orderTotal] as! Double
+                            if let foodItems = orderData[OrderKeys.orderItems] as? NSArray {
+                                var orderItems: [OrderItem] = []
+                                for i in 0..<foodItems.count {
+                                    guard let foodItem = foodItems[i] as? [String : Any] else {
+                                        NSLog("Could not serialize inner data : foodItems in array")
+                                        continue
+                                    }
+                                    orderItems.append(OrderItem(foodItem: FoodItem(foodName: foodItem[FoodKeys.foodName] as! String,
+                                                                                    foodDescription: "",
+                                                                                    foodPrice: foodItem[FoodKeys.foodPrice] as! Double,
+                                                                                    discount: 0,
+                                                                                    foodImgRes: ""),
+                                                                 qty: foodItem[OrderKeys.itemCount] as! Int))
+                                }
+                                
+                                
+//                                for foodItem in foodItems {
+//                                    guard let singleFoodItem = foodItem.value as? [String: Any] else {
+//                                        NSLog("Could not serialize inner data : foodItems in loop")
+//                                        continue
+//                                    }
+//                                    orderItems.append(OrderItem(foodItem: FoodItem(foodName: singleFoodItem[FoodKeys.foodName] as! String,
+//                                                                                    foodDescription: "",
+//                                                                                    foodPrice: singleFoodItem[FoodKeys.foodPrice] as! Double,
+//                                                                                    discount: 0,
+//                                                                                    foodImgRes: ""),
+//                                                                 qty: singleFoodItem[OrderKeys.itemCount] as! Int))
+                                    order.orderItems = orderItems
+                                } else {
+                                NSLog("Could not serialize order item")
+                            }
+                            orderedList.append(order)
+                        }
+                        orderedList = orderedList.sorted{ $0.orderDate > $1.orderDate }
+                        self.delegate?.onAllOrdersLoaded(orderedList: orderedList)
+                    } else {
+                        NSLog("Unable to parse Order data")
+                        self.delegate?.onAllOrdersLoadFailed(error: FieldErrorCaptions.orderLoadFailed)
+                    }
+                    
+                } else {
+                    self.delegate?.onAllOrdersLoadFailed(error: FieldErrorCaptions.noOrdersFound)
+                }
+            })
+    }
+    
+    func updateUser(user: User) {
+        guard let userName = user.userName, let email = user.email, let phoneNo = user.phoneNo else {
+            NSLog("Empty params found on user instance")
+            delegate?.onUserUpdateFailed(error: FieldErrorCaptions.updateUserFailed)
+            return
+        }
+        
+        let data = [
+            UserKeys.userName : userName,
+            UserKeys.phoneNo : phoneNo,
+        ]
+        
+        self.getDBReference()
+            .child("users")
+            .child(email.replacingOccurrences(of: ".", with: "_").replacingOccurrences(of: "@", with: "_"))
+            .updateChildValues(data) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    self.delegate?.onUserUpdateFailed(error: FieldErrorCaptions.updateUserFailed)
+                    NSLog(error.localizedDescription)
+                } else {
+                    self.delegate?.onUserDataUpdated(user: user)
+                }
+            }
+    }
+    
+    func updateUserPassword(newPassword: String) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword, completion: {
+            error in
+            if let error = error {
+                self.delegate?.onPasswordChangeFailedWithError(error: FieldErrorCaptions.updatePasswordFailed)
+                NSLog(error.localizedDescription)
+            } else {
+                self.delegate?.onPasswordChanged()
             }
         })
     }
@@ -246,6 +384,12 @@ protocol FirebaseActions {
     func isSignUpFailedWithError(error: Error)
     func isSignUpFailedWithError(error: String)
     
+    func onUserDataUpdated(user: User?)
+    func onUserUpdateFailed(error: String)
+    
+    func onPasswordChanged()
+    func onPasswordChangeFailedWithError(error: String)
+    
     func onUserNotRegistered(error: String)
     func onUserSignInSuccess(user: User?)
     func onUserSignInFailedWithError(error: Error)
@@ -258,6 +402,12 @@ protocol FirebaseActions {
     func onFoodItemsLoaded(foodItems: [FoodItem])
     func onFoodItemsLoadFailed(error: String)
     
+    func onOrderPlaced()
+    func onOrderPlaceFailedWithError(error: String)
+    
+    func onAllOrdersLoaded(orderedList: [Order])
+    func onAllOrdersLoadFailed(error: String)
+    
     func onOperationsCancelled()
 }
 
@@ -268,6 +418,12 @@ extension FirebaseActions {
     func isExisitingUser(error: String){}
     func isSignUpFailedWithError(error: Error){}
     func isSignUpFailedWithError(error: String){}
+    
+    func onUserDataUpdated(user: User?) {}
+    func onUserUpdateFailed(error: String) {}
+    
+    func onPasswordChanged() {}
+    func onPasswordChangeFailedWithError(error: String) {}
     
     func onUserNotRegistered(error: String){}
     func onUserSignInSuccess(user: User?){}
@@ -280,6 +436,12 @@ extension FirebaseActions {
     func onCategoriesLoaded(categories: [FoodCategory]) {}
     func onFoodItemsLoaded(foodItems: [FoodItem]) {}
     func onFoodItemsLoadFailed(error: String) {}
+    
+    func onOrderPlaced() {}
+    func onOrderPlaceFailedWithError(error: String) {}
+    
+    func onAllOrdersLoaded(orderedList: [Order]) {}
+    func onAllOrdersLoadFailed(error: String) {}
     
     func onOperationsCancelled(){}
 }

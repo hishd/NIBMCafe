@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class FoodDetailViewController: UIViewController {
+class FoodDetailViewController: BaseViewController {
 
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var viewContainerDiscount: UIView!
@@ -24,10 +24,10 @@ class FoodDetailViewController: UIViewController {
     var foodItem: FoodItem!
     var selectedQty: Int = 1
     
+    let realmDB = RealmDB.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +53,23 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func onAddToCartPressed(_ sender: UIButton) {
+        let cartItem = CartItem()
+        cartItem.itemName = foodItem.foodName
+        cartItem.itemImgRes = foodItem.foodImgRes
+        cartItem.discount = foodItem.discount
+        cartItem.itemPrice = foodItem.foodPrice
+        cartItem.itemCount = selectedQty
+        
+        realmDB.addToCart(cartItem: cartItem, callback: {
+            result in
+            if result {
+                displaySuccessMessage(message: "Item added to cart", completion: {
+                    self.dismiss(animated: true, completion: nil)
+                })
+            } else {
+                displayErrorMessage(message: "Failed to add to cart")
+            }
+        })
     }
     
     func refreshView() {

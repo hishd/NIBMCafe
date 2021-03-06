@@ -20,6 +20,7 @@ extension Double {
     static func getLKRString(amount: Double) -> String {
         return String(format: "RS. %.2f", amount)
     }
+    
 }
 
 //class Formatter {

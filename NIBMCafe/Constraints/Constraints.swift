@@ -38,6 +38,15 @@ struct FieldErrorCaptions {
     
     static let noFoodItems = "No food Items found."
     static let foodDataLoadFailed = "Could not load foods!"
+    
+    static let orderPlacingError = "Unable to place order!"
+    
+    static let noOrdersFound = "No orders found!"
+    static let orderLoadFailed = "Failed to load orders!"
+    
+    static let updateUserFailed = "Failed to update user!"
+    
+    static let updatePasswordFailed = "Faild to update password!"
 }
 
 struct InputErrorCaptions {
@@ -70,4 +79,14 @@ class FoodKeys {
     class var foodImgRes: String { return "foodImgRes" }
     class var foodName: String { return "foodName" }
     class var foodPrice: String { return "foodPrice" }
+}
+
+class OrderKeys {
+    class var orderID: String { return "orderID" }
+    class var orderStatusCode: String { return "orderStatusCode" }
+    class var orderStatusString: String { return "orderStatusString" }
+    class var orderDate: String { return "orderDate" }
+    class var itemCount: String { return "itemCount" }
+    class var orderTotal: String { return "orderTotal" }
+    class var orderItems: String { return "orderItems" }
 }
