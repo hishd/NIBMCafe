@@ -242,7 +242,7 @@ class FirebaseOP {
         for i in 0..<order.orderItems.count {
             foodItems[String(i)] = [
                 FoodKeys.foodName : order.orderItems[i].foodItem.foodName,
-                FoodKeys.foodPrice : order.orderItems[i].foodItem.discountedPrice,
+                FoodKeys.foodPrice : order.orderItems[i].foodItem.foodPrice,
                 OrderKeys.itemCount : order.orderItems[i].qty
             ]
         }
@@ -362,16 +362,26 @@ class FirebaseOP {
             }
     }
     
-    func updateUserPassword(newPassword: String) {
-        Auth.auth().currentUser?.updatePassword(to: newPassword, completion: {
-            error in
-            if let error = error {
-                self.delegate?.onPasswordChangeFailedWithError(error: FieldErrorCaptions.updatePasswordFailed)
-                NSLog(error.localizedDescription)
-            } else {
-                self.delegate?.onPasswordChanged()
-            }
-        })
+    func updateUserPassword(email: String, newPassword: String, existingPassword: String) {
+        let user = Auth.auth().currentUser
+        let credential = EmailAuthProvider.credential(withEmail: email, password: existingPassword)
+        
+        user?.reauthenticate(with: credential) { data, error  in
+          if let error = error {
+            NSLog(error.localizedDescription)
+            self.delegate?.onPasswordChangeFailedWithError(error: FieldErrorCaptions.invalidExistingPassword)
+          } else {
+            Auth.auth().currentUser?.updatePassword(to: newPassword, completion: {
+                error in
+                if let error = error {
+                    self.delegate?.onPasswordChangeFailedWithError(error: FieldErrorCaptions.updatePasswordFailed)
+                    NSLog(error.localizedDescription)
+                } else {
+                    self.delegate?.onPasswordChanged()
+                }
+            })
+          }
+        }
     }
     
 }

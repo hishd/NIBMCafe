@@ -47,6 +47,7 @@ struct FieldErrorCaptions {
     static let updateUserFailed = "Failed to update user!"
     
     static let updatePasswordFailed = "Faild to update password!"
+    static let invalidExistingPassword = "Invalid existing password!"
 }
 
 struct InputErrorCaptions {

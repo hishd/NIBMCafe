@@ -9,6 +9,7 @@ import UIKit
 
 class UpdatePasswordViewController: BaseViewController {
 
+    @IBOutlet weak var txtCurrentPassword: CustomTextField!
     @IBOutlet weak var txtNewPassword: CustomTextField!
     @IBOutlet weak var txtConfirmPassword: CustomTextField!
     
@@ -26,6 +27,12 @@ class UpdatePasswordViewController: BaseViewController {
     }
     
     @IBAction func btnOnUpdateClicked(_ sender: UIButton) {
+        
+        if !InputFieldValidator.isValidPassword(pass: txtCurrentPassword.text ?? "", minLength: 6, maxLength: 20){
+            txtCurrentPassword.clearText()
+            txtCurrentPassword.displayInlineError(errorString: InputErrorCaptions.invalidPassword)
+            return
+        }
         
         if !InputFieldValidator.isValidPassword(pass: txtNewPassword.text ?? "", minLength: 6, maxLength: 20){
             txtNewPassword.clearText()
@@ -52,8 +59,14 @@ class UpdatePasswordViewController: BaseViewController {
             return
         }
         
+        guard let email = SessionManager.getUserSesion()?.email else {
+            NSLog("User email is empty")
+            displayErrorMessage(message: FieldErrorCaptions.updatePasswordFailed)
+            return
+        }
+        
         displayProgress()
-        firebaseOP.updateUserPassword(newPassword: txtNewPassword.text!)
+        firebaseOP.updateUserPassword(email: email, newPassword: txtNewPassword.text!, existingPassword: txtCurrentPassword.text!)
     }
 }
 

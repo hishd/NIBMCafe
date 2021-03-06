@@ -45,7 +45,9 @@ class FoodViewController: BaseViewController {
         
         btnCart.generateRoundButton()
         registerNIB()
-        // Do any additional setup after loading the view.
+
+        firebaseOP.fetchAllFoodItems()
+        displayProgress()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,9 +60,6 @@ class FoodViewController: BaseViewController {
             tblViewFood.addSubview(refreshControl)
         }
         refreshControl.addTarget(self, action: #selector(refreshFoodData), for: .valueChanged)
-        
-        firebaseOP.fetchAllFoodItems()
-        displayProgress()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -126,7 +126,6 @@ class ProfileViewController: BaseViewController {
         let range = startDate...endDate
         for order in fetchedOrderList {
             if range.contains(order.orderDate) {
-                print(order.orderDate)
                 filteredOrders.append(order)
             }
         }
@@ -207,11 +206,10 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: 0)
-//        UIView.animate(withDuration: 1.0, delay: 0.05 * Double(indexPath.row), usingSpringWithDamping: 0.4, initialSpringVelocity: 0.1,
-//                       options: .curveEaseIn, animations: {
-//                        cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
-//                       })
+        cell.transform = CGAffineTransform(scaleX: 0, y : 0)
+        UIView.animate(withDuration: 0.5, animations: {
+            cell.transform = CGAffineTransform(scaleX: 1, y : 1)
+        })
     }
 }
 

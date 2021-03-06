@@ -43,8 +43,8 @@ class OrderSummaryCell: UITableViewCell {
                 
         for item in order.orderItems {
             foodNames += "\n\(item.foodItem.foodName)"
-            orderInfo += "\n\(item.qty) X \(item.foodItem.discountedPrice.lkrString)"
-            totalAmount += Double(item.qty) * item.foodItem.discountedPrice
+            orderInfo += "\n\(item.qty) X \(item.foodItem.foodPrice.lkrString)"
+            totalAmount += Double(item.qty) * item.foodItem.foodPrice
         }
         
         lblDate.text = DateUtil.getDate(date: order.orderDate)
