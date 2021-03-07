@@ -14,7 +14,7 @@ class RequestLocationViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        locationManager.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -50,4 +50,9 @@ class RequestLocationViewController: BaseViewController {
      }
      */
     
+}
+
+extension RequestLocationViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    }
 }

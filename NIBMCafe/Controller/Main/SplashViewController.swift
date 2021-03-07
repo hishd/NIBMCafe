@@ -11,15 +11,13 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.popViewController(animated: true)
         if SessionManager.authState {
             NSLog("User Session found")
             self.performSegue(withIdentifier: StoryBoardSegues.splashToHome, sender: nil)
-            return
         } else {
             NSLog("User Session not found")
             self.performSegue(withIdentifier: StoryBoardSegues.splashToSignIn, sender: nil)

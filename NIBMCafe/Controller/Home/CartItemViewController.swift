@@ -53,6 +53,10 @@ class CartItemViewController: BaseViewController {
     }
     
     @IBAction func onCheckoutClicked(_ sender: UIButton) {
+        if cartItems.count == 0 {
+            displayInfoMessage(message: "No items in the cart!")
+            return
+        }
         displayOrderConfirmAlert()
     }
     
@@ -72,7 +76,6 @@ class CartItemViewController: BaseViewController {
     }
     
     func confirmAndPurchase() {
-        
         guard let email = SessionManager.getUserSesion()?.email else {
             NSLog("The email is empty")
             displayErrorMessage(message: FieldErrorCaptions.orderPlacingError)

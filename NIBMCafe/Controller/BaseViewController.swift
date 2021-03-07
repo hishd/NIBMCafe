@@ -63,7 +63,7 @@ class BaseViewController: UIViewController, NetworkListener {
         alertController.title = title
         alertController.message = message
         alertController.addAction(UIAlertAction(title: positiveTitle, style: .default, handler: positiveHandler))
-        alertController.addAction(UIAlertAction(title: negativeTitle, style: .destructive, handler: negativeHandler))
+        alertController.addAction(UIAlertAction(title: negativeTitle, style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
     

@@ -21,6 +21,7 @@ class SignInViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        NSLog("Loading Sign In")
         firebaseOP.delegate = self
         networkMonitor.delegate = self
     }
@@ -70,6 +71,7 @@ extension SignInViewController : FirebaseActions {
     func onUserSignInSuccess(user: User?) {
         dismissProgress()
         if let user = user {
+            self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: StoryBoardSegues.launchToHomeSegue, sender: nil)
             SessionManager.saveUserSession(user)
         } else {

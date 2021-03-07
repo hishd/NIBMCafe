@@ -14,6 +14,7 @@ struct StoryBoardSegues {
     static let homeToViewDetails = "homeToViewDetails"
     static let splashToHome = "splashToHome"
     static let splashToSignIn = "splashToSignIn"
+    static let profileToLaunch = "profileToLaunch"
 }
 
 //Name of the SessionVariables

@@ -28,6 +28,10 @@ class SignUpViewController: BaseViewController {
         networkMonitor.delegate = self
     }
     
+    @IBAction func onSignInPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func onSignUpClicked(_ sender: UIButton) {
         
         if !InputFieldValidator.isValidName(txtUserName.text ?? "") {
@@ -112,10 +116,11 @@ extension SignUpViewController : UITextFieldDelegate {
 extension SignUpViewController : FirebaseActions {
     func isSignUpSuccessful(user: User?) {
         dismissProgress()
-        displaySuccessMessage(message: "Regisration Successful!", completion: nil)
         if let user = user {
-            self.performSegue(withIdentifier: StoryBoardSegues.signUpToAllowLocation, sender: nil)
-            SessionManager.saveUserSession(user)
+            displaySuccessMessage(message: "Regisration Successful!", completion: {
+                SessionManager.saveUserSession(user)
+                self.performSegue(withIdentifier: StoryBoardSegues.signUpToAllowLocation, sender: nil)
+            })
         } else {
             displayErrorMessage(message: FieldErrorCaptions.generalizedError)
         }

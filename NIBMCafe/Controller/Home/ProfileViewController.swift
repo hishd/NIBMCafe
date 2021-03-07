@@ -65,9 +65,9 @@ class ProfileViewController: BaseViewController {
         firebaseOP.delegate = self
         
         if let user = SessionManager.getUserSesion() {
-            if let image = user.imageRes {
-                self.imgProfile.kf.setImage(with: URL(string: image))
-            }
+//            if let image = user.imageRes {
+//                self.imgProfile.kf.setImage(with: URL(string: image))
+//            }
             lblUserName.text = user.userName
             lblPhoneNo.text = user.phoneNo
         }
@@ -100,6 +100,20 @@ class ProfileViewController: BaseViewController {
 //        passedOrders.append(contentsOf: fetchedOrders)
         
         
+    }
+    
+    @IBAction func onSignOutClicked(_ sender: UIButton) {
+        displayActionSheet(title: "Sign Out", message: "Sign out from the application?", positiveTitle: "Sign out", negativeTitle: "Cancel", positiveHandler: {
+            action in
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+                SessionManager.clearUserSession()
+                self.performSegue(withIdentifier: StoryBoardSegues.profileToLaunch, sender: nil)
+            }
+        }, negativeHandler: {
+            action in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @IBAction func onEditClicked(_ sender: UIButton) {
@@ -226,7 +240,7 @@ extension ProfileViewController : FirebaseActions {
         txtToDate.text = dateFormatter.string(from: endDate)
         refreshData()
     }
-    func onOrderPlaceFailedWithError(error: String) {
+    func onAllOrdersLoadFailed(error: String) {
         dismissProgress()
         displayErrorMessage(message: error)
     }

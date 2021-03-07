@@ -331,6 +331,7 @@ class FirebaseOP {
                     }
                     
                 } else {
+                    NSLog("No orders found!")
                     self.delegate?.onAllOrdersLoadFailed(error: FieldErrorCaptions.noOrdersFound)
                 }
             })

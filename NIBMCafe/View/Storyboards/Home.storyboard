@@ -91,6 +91,14 @@
             </objects>
             <point key="canvasLocation" x="1568.8" y="550.97451274362822"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="o2f-7e-KZe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="q6E-9J-sKv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlu-lN-Zlc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="1817"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="mX6-9j-1dV">
             <objects>
@@ -216,6 +224,26 @@
                                     <outlet property="delegate" destination="5CA-CC-r42" id="K8P-MU-2kd"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-Ts-avY">
+                                <rect key="frame" x="281" y="20" width="74" height="25"/>
+                                <color key="backgroundColor" name="orange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="ENr-oq-hcb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="SIGNOUT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSignOutClicked:" destination="5CA-CC-r42" eventType="touchUpInside" id="z5B-8r-Jae"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ha7-0w-pBd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -229,11 +257,13 @@
                             <constraint firstItem="Nny-p0-FcQ" firstAttribute="leading" secondItem="Ha7-0w-pBd" secondAttribute="leading" constant="20" id="GRv-cR-KtI"/>
                             <constraint firstItem="7uW-ss-Qfd" firstAttribute="top" secondItem="Ddx-HD-Iwb" secondAttribute="bottom" constant="40" id="IOM-sE-w7p"/>
                             <constraint firstItem="RMt-pt-aT5" firstAttribute="top" secondItem="0QJ-Yx-OgP" secondAttribute="bottom" constant="30" id="NOc-ph-Ojh"/>
+                            <constraint firstItem="Ha7-0w-pBd" firstAttribute="trailing" secondItem="pDc-Ts-avY" secondAttribute="trailing" constant="20" id="P6v-xh-A4t"/>
                             <constraint firstItem="7uW-ss-Qfd" firstAttribute="leading" secondItem="Ha7-0w-pBd" secondAttribute="leading" constant="20" id="Ppo-HW-Och"/>
                             <constraint firstItem="Ha7-0w-pBd" firstAttribute="trailing" secondItem="7uW-ss-Qfd" secondAttribute="trailing" constant="20" id="W8C-cW-eoK"/>
                             <constraint firstItem="RMt-pt-aT5" firstAttribute="leading" secondItem="Ha7-0w-pBd" secondAttribute="leading" constant="20" id="Wwt-Kq-n30"/>
                             <constraint firstItem="Ddx-HD-Iwb" firstAttribute="leading" secondItem="RMt-pt-aT5" secondAttribute="trailing" constant="10" id="ZWI-6N-KuO"/>
                             <constraint firstItem="0QJ-Yx-OgP" firstAttribute="leading" secondItem="Ha7-0w-pBd" secondAttribute="leading" constant="20" id="hBz-V9-2un"/>
+                            <constraint firstItem="pDc-Ts-avY" firstAttribute="top" secondItem="Ha7-0w-pBd" secondAttribute="top" constant="20" id="srO-5N-i5j"/>
                             <constraint firstItem="S9P-ET-T3F" firstAttribute="top" secondItem="7uW-ss-Qfd" secondAttribute="bottom" constant="30" id="vLL-Nz-jag"/>
                         </constraints>
                     </view>
@@ -246,11 +276,12 @@
                         <outlet property="tblPastOrders" destination="Nny-p0-FcQ" id="ln1-dV-fvH"/>
                         <outlet property="txtFromDate" destination="TdL-iY-132" id="Rjh-gE-CSD"/>
                         <outlet property="txtToDate" destination="nRl-UR-ZIH" id="SXT-20-4bL"/>
+                        <segue destination="q6E-9J-sKv" kind="presentation" identifier="profileToLaunch" modalPresentationStyle="fullScreen" id="U18-5M-iMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGm-ma-Xzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="1270"/>
+            <point key="canvasLocation" x="648.79999999999995" y="1269.7151424287856"/>
         </scene>
         <!--Update Profile View Controller-->
         <scene sceneID="8tp-Vz-9vq">
