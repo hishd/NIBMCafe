@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Lottie
 
 class FoodViewController: BaseViewController {
     
     @IBOutlet weak var btnCart: UIButton!
     @IBOutlet weak var collectionViewCategories: UICollectionView!
     @IBOutlet weak var tblViewFood: UITableView!
+    @IBOutlet weak var animationViewFood: AnimationView!
     
     var selectedCategoryIndex: Int = 0
     var selectedFoodIndex: Int = 0
@@ -47,7 +49,9 @@ class FoodViewController: BaseViewController {
         registerNIB()
 
         firebaseOP.fetchAllFoodItems()
-        displayProgress()
+//        displayProgress()
+        animationViewFood.loopMode = .loop
+        animationViewFood.play()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -187,14 +191,16 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
 extension FoodViewController : FirebaseActions {
     func onCategoriesLoaded(categories: [FoodCategory]) {
         refreshControl.endRefreshing()
-        dismissProgress()
+        animationViewFood.stop()
+        animationViewFood.isHidden = true
+//        dismissProgress()
         self.categories.removeAll()
         self.categories.append(contentsOf: categories)
         self.collectionViewCategories.reloadData()
     }
     func onFoodItemsLoaded(foodItems: [FoodItem]) {
         refreshControl.endRefreshing()
-        dismissProgress()
+//        dismissProgress()
         foodItemList.removeAll()
         filteredFood.removeAll()
         self.foodItemList.append(contentsOf: foodItems)
@@ -203,7 +209,7 @@ extension FoodViewController : FirebaseActions {
     }
     func onFoodItemsLoadFailed(error: String) {
         refreshControl.endRefreshing()
-        dismissProgress()
+//        dismissProgress()
         displayErrorMessage(message: error)
     }
 }

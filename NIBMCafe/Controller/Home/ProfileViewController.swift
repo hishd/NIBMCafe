@@ -106,9 +106,10 @@ class ProfileViewController: BaseViewController {
         displayActionSheet(title: "Sign Out", message: "Sign out from the application?", positiveTitle: "Sign out", negativeTitle: "Cancel", positiveHandler: {
             action in
             DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
                 SessionManager.clearUserSession()
-                self.performSegue(withIdentifier: StoryBoardSegues.profileToLaunch, sender: nil)
+//                self.performSegue(withIdentifier: StoryBoardSegues.profileToLaunch, sender: nil)
             }
         }, negativeHandler: {
             action in

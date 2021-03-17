@@ -36,11 +36,11 @@ class BaseViewController: UIViewController, NetworkListener {
     }
     
     func displayErrorMessage(message: String) {
-        Loaf(message, state: .error, sender: self).show(.short)
+        Loaf(message, state: .error, sender: self).show(.custom(1.0))
     }
     
     func displaySuccessMessage(message: String, completion: (() -> Void)?) {
-        Loaf(message, state: .success, sender: self).show(.short) {
+        Loaf(message, state: .success, sender: self).show(.custom(1.0)) {
             dismissal in
             if let completion  = completion {
                 completion()
@@ -49,17 +49,17 @@ class BaseViewController: UIViewController, NetworkListener {
     }
     
     func displayInfoMessage(message: String) {
-        Loaf(message, state: .info, sender: self).show(.short)
+        Loaf(message, state: .info, sender: self).show(.custom(1.0))
     }
     
     func displayWarningMessage(message: String) {
-        Loaf(message, state: .warning, sender: self).show(.short)
+        Loaf(message, state: .warning, sender: self).show(.custom(1.0))
     }
     
     func displayActionSheet(title: String, message: String, positiveTitle: String, negativeTitle: String, positiveHandler: @escaping (UIAlertAction) -> Void, negativeHandler: @escaping (UIAlertAction) -> Void) {
-        if alertController == nil {
-            alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        }
+
+        alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        
         alertController.title = title
         alertController.message = message
         alertController.addAction(UIAlertAction(title: positiveTitle, style: .default, handler: positiveHandler))

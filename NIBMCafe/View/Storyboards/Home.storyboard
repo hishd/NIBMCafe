@@ -94,10 +94,27 @@
         <!--Main-->
         <scene sceneID="o2f-7e-KZe">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="q6E-9J-sKv" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="q6E-9J-sKv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="enW-AU-Pif"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlu-lN-Zlc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="649" y="1817"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="an7-ua-yjG">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="8uY-gX-1r5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tX7-5z-YwS">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5CA-CC-r42" kind="relationship" relationship="rootViewController" id="YzU-7p-HuC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pxc-8Z-Vki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="1270"/>
         </scene>
         <!--Profile-->
         <scene sceneID="mX6-9j-1dV">
@@ -143,7 +160,7 @@
                                         </state>
                                         <connections>
                                             <action selector="onEditClicked:" destination="5CA-CC-r42" eventType="touchUpInside" id="Usk-NU-fuA"/>
-                                            <segue destination="JeM-OF-Tjb" kind="presentation" modalPresentationStyle="fullScreen" id="4Us-Ku-zFu"/>
+                                            <segue destination="JeM-OF-Tjb" kind="show" id="4Us-Ku-zFu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -217,7 +234,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nny-p0-FcQ">
-                                <rect key="frame" x="20" y="296.5" width="335" height="301.5"/>
+                                <rect key="frame" x="20" y="296.5" width="335" height="350.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5CA-CC-r42" id="TrQ-MV-hqS"/>
@@ -268,6 +285,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_inactive" id="6fc-xa-Hrj"/>
+                    <navigationItem key="navigationItem" id="lfp-Pv-Arn"/>
                     <connections>
                         <outlet property="imgProfile" destination="RMt-pt-aT5" id="mPy-ej-I63"/>
                         <outlet property="lblPhoneNo" destination="rNh-ih-pzf" id="H8n-Je-UDS"/>
@@ -276,7 +294,7 @@
                         <outlet property="tblPastOrders" destination="Nny-p0-FcQ" id="ln1-dV-fvH"/>
                         <outlet property="txtFromDate" destination="TdL-iY-132" id="Rjh-gE-CSD"/>
                         <outlet property="txtToDate" destination="nRl-UR-ZIH" id="SXT-20-4bL"/>
-                        <segue destination="q6E-9J-sKv" kind="presentation" identifier="profileToLaunch" modalPresentationStyle="fullScreen" id="U18-5M-iMh"/>
+                        <segue destination="q6E-9J-sKv" kind="show" identifier="profileToLaunch" id="U18-5M-iMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGm-ma-Xzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -307,7 +325,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onBackPressed:" destination="JeM-OF-Tjb" eventType="touchUpInside" id="8ky-PC-9OO"/>
-                                    <action selector="onBackPressed:" destination="D4C-Z4-qsF" eventType="touchUpInside" id="LJy-aM-iHO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-Mj-FMZ">
@@ -402,7 +419,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onEditClicked:" destination="5CA-CC-r42" eventType="touchUpInside" id="SY2-bK-rSq"/>
-                                    <segue destination="rlJ-K3-2Ut" kind="presentation" modalPresentationStyle="fullScreen" id="OWR-OX-Yct"/>
+                                    <segue destination="rlJ-K3-2Ut" kind="show" id="OWR-OX-Yct"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -430,6 +447,7 @@
                             <constraint firstItem="QKE-oV-rJF" firstAttribute="leading" secondItem="p76-6U-sR2" secondAttribute="leading" constant="20" id="vJn-Mw-HNI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XOq-fS-W7p"/>
                     <connections>
                         <outlet property="imgProfile" destination="LPb-wJ-cx8" id="gf0-ED-dCT"/>
                         <outlet property="txtPhoneNo" destination="tBB-eV-6PP" id="Sze-5O-JQT"/>
@@ -438,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxw-B2-K58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431" y="1270"/>
+            <point key="canvasLocation" x="1569" y="1270"/>
         </scene>
         <!--Update Password View Controller-->
         <scene sceneID="bs2-Iu-byO">
@@ -463,7 +481,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onBackPressed:" destination="D4C-Z4-qsF" eventType="touchUpInside" id="T5K-RQ-W9f"/>
+                                    <action selector="onBackPressed:" destination="rlJ-K3-2Ut" eventType="touchUpInside" id="LqK-OY-luB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUj-hL-hIj">
@@ -573,6 +591,7 @@
                             <constraint firstItem="rUr-29-qWb" firstAttribute="leading" secondItem="nDV-ip-Vrx" secondAttribute="leading" constant="20" id="zKs-ob-c91"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fWK-CR-GXl"/>
                     <connections>
                         <outlet property="txtConfirmPassword" destination="ZAY-gK-kI7" id="cqZ-3o-hbV"/>
                         <outlet property="txtCurrentPassword" destination="zxG-Rf-giX" id="h5Y-06-KpU"/>
@@ -581,7 +600,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNc-ZI-ehe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="1270"/>
+            <point key="canvasLocation" x="2425" y="1270"/>
         </scene>
         <!--Food-->
         <scene sceneID="0Ko-La-DS6">
@@ -607,7 +626,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cart" catalog="system"/>
                                 <connections>
-                                    <segue destination="O8R-l8-jp2" kind="presentation" modalPresentationStyle="automatic" id="U4W-l5-3Rg"/>
+                                    <segue destination="O8R-l8-jp2" kind="show" id="U4W-l5-3Rg"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9k8-hV-GI3">
@@ -636,15 +655,26 @@
                                     <outlet property="delegate" destination="eRw-dc-XBa" id="Eo2-n5-lQI"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-2a-eZB" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="20" y="122" width="335" height="496"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="food"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tTJ-B0-MPI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bjp-Ft-mAg" firstAttribute="leading" secondItem="tTJ-B0-MPI" secondAttribute="leading" constant="20" id="47D-Sw-QaN"/>
+                            <constraint firstItem="tTJ-B0-MPI" firstAttribute="bottom" secondItem="XHl-2a-eZB" secondAttribute="bottom" id="7Rg-fu-axa"/>
                             <constraint firstItem="tTJ-B0-MPI" firstAttribute="trailing" secondItem="9k8-hV-GI3" secondAttribute="trailing" constant="20" id="7ql-yT-Yi4"/>
                             <constraint firstItem="tTJ-B0-MPI" firstAttribute="trailing" secondItem="Xcg-aA-etu" secondAttribute="trailing" constant="20" id="BJd-fn-Nok"/>
+                            <constraint firstItem="XHl-2a-eZB" firstAttribute="top" secondItem="9k8-hV-GI3" secondAttribute="bottom" constant="20" id="FVW-4h-4ZD"/>
+                            <constraint firstItem="XHl-2a-eZB" firstAttribute="leading" secondItem="tTJ-B0-MPI" secondAttribute="leading" constant="20" id="HZJ-X0-3xY"/>
                             <constraint firstItem="tTJ-B0-MPI" firstAttribute="bottom" secondItem="Xcg-aA-etu" secondAttribute="bottom" id="KI9-L4-krV"/>
                             <constraint firstItem="Xcg-aA-etu" firstAttribute="leading" secondItem="tTJ-B0-MPI" secondAttribute="leading" constant="20" id="KOm-Ie-DZb"/>
+                            <constraint firstItem="tTJ-B0-MPI" firstAttribute="trailing" secondItem="XHl-2a-eZB" secondAttribute="trailing" constant="20" id="KlA-Lf-yAR"/>
                             <constraint firstItem="tTJ-B0-MPI" firstAttribute="trailing" secondItem="aNe-8X-fnn" secondAttribute="trailing" constant="20" id="Mda-QW-GuF"/>
                             <constraint firstItem="Xcg-aA-etu" firstAttribute="top" secondItem="9k8-hV-GI3" secondAttribute="bottom" constant="20" id="NUr-vs-1GX"/>
                             <constraint firstItem="9k8-hV-GI3" firstAttribute="top" secondItem="bjp-Ft-mAg" secondAttribute="bottom" constant="20" id="PrB-yc-ZDx"/>
@@ -655,10 +685,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Food" image="food_inactive" id="AOj-PD-6Kc"/>
                     <connections>
+                        <outlet property="animationViewFood" destination="XHl-2a-eZB" id="Tlm-2Z-fQc"/>
                         <outlet property="btnCart" destination="aNe-8X-fnn" id="3tR-GK-xyM"/>
                         <outlet property="collectionViewCategories" destination="9k8-hV-GI3" id="nG3-El-XYm"/>
                         <outlet property="tblViewFood" destination="Xcg-aA-etu" id="kiA-83-lMz"/>
-                        <segue destination="D4C-Z4-qsF" kind="presentation" identifier="homeToViewDetails" modalPresentationStyle="fullScreen" id="4XH-3A-Xb8"/>
+                        <segue destination="D4C-Z4-qsF" kind="show" identifier="homeToViewDetails" id="4XH-3A-Xb8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P8-4q-hRv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -785,7 +816,7 @@
                                                                     <action selector="onMinusPressed:" destination="D4C-Z4-qsF" eventType="touchUpInside" id="aCG-KV-X7B"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1A-H2-uIV">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1A-H2-uIV">
                                                                 <rect key="frame" x="26.5" y="0.0" width="27" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                                                                 <color key="textColor" name="dark_gray"/>
@@ -863,7 +894,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvI-SA-MwI">
-                                <rect key="frame" x="20" y="592" width="335" height="45"/>
+                                <rect key="frame" x="20" y="572" width="335" height="45"/>
                                 <color key="backgroundColor" name="orange"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Jj6-xh-58J"/>
@@ -909,6 +940,7 @@
                             <constraint firstItem="cVk-h5-Nhl" firstAttribute="leading" secondItem="CP9-y1-fIe" secondAttribute="leading" constant="20" id="zdi-Tv-d79"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ee3-OH-FML"/>
                     <connections>
                         <outlet property="imgFood" destination="xxx-Bv-uc2" id="Zxc-gk-hPA"/>
                         <outlet property="lblDiscount" destination="NkG-pf-6Vi" id="16c-s7-sq2"/>
@@ -934,7 +966,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CART" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H10-Wf-ch7">
-                                <rect key="frame" x="20" y="25" width="52.5" height="23.5"/>
+                                <rect key="frame" x="161.5" y="25" width="52.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" name="dark_gray"/>
                                 <nil key="highlightedColor"/>
@@ -1013,22 +1045,55 @@
                                     <constraint firstItem="7Mi-j8-Y7k" firstAttribute="leading" secondItem="etH-nN-7t5" secondAttribute="leading" id="x5U-Lc-vfm"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QO2-0Q-Wr0">
+                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <color key="backgroundColor" name="light_gray_2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c9G-LM-chL"/>
+                                    <constraint firstAttribute="width" constant="30" id="gwb-us-Nwu"/>
+                                </constraints>
+                                <color key="tintColor" name="orange"/>
+                                <state key="normal" image="chevron.backward" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBackPressed:" destination="O8R-l8-jp2" eventType="touchUpInside" id="EzF-2J-TNn"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7P-AE-ArU" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="20" y="68.5" width="335" height="448.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="empty"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8w2-B3-7aq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="H10-Wf-ch7" firstAttribute="leading" secondItem="8w2-B3-7aq" secondAttribute="leading" constant="20" id="XrO-nq-0ND"/>
+                            <constraint firstItem="Z7P-AE-ArU" firstAttribute="leading" secondItem="8w2-B3-7aq" secondAttribute="leading" constant="20" id="8Ng-HO-Ft5"/>
+                            <constraint firstItem="QO2-0Q-Wr0" firstAttribute="top" secondItem="8w2-B3-7aq" secondAttribute="top" constant="20" id="Fh6-en-bfO"/>
+                            <constraint firstItem="8w2-B3-7aq" firstAttribute="trailing" secondItem="Z7P-AE-ArU" secondAttribute="trailing" constant="20" id="IpP-vp-dL6"/>
+                            <constraint firstItem="H10-Wf-ch7" firstAttribute="centerX" secondItem="WGf-Pe-WFc" secondAttribute="centerX" id="TcL-DS-GMT"/>
+                            <constraint firstItem="QO2-0Q-Wr0" firstAttribute="leading" secondItem="8w2-B3-7aq" secondAttribute="leading" constant="20" id="VMG-h3-ryf"/>
                             <constraint firstItem="etH-nN-7t5" firstAttribute="trailing" secondItem="8w2-B3-7aq" secondAttribute="trailing" id="ZUn-wL-BqA"/>
                             <constraint firstItem="zZp-Gb-EXz" firstAttribute="top" secondItem="H10-Wf-ch7" secondAttribute="bottom" constant="20" id="aCi-Fc-n3E"/>
                             <constraint firstItem="H10-Wf-ch7" firstAttribute="top" secondItem="8w2-B3-7aq" secondAttribute="top" constant="25" id="dpl-5K-7WM"/>
                             <constraint firstItem="etH-nN-7t5" firstAttribute="bottom" secondItem="WGf-Pe-WFc" secondAttribute="bottom" id="dq0-AF-WI5"/>
+                            <constraint firstItem="Z7P-AE-ArU" firstAttribute="top" secondItem="H10-Wf-ch7" secondAttribute="bottom" constant="20" id="eCP-s8-9QW"/>
                             <constraint firstItem="zZp-Gb-EXz" firstAttribute="leading" secondItem="8w2-B3-7aq" secondAttribute="leading" constant="20" id="gcg-oC-lY9"/>
                             <constraint firstItem="etH-nN-7t5" firstAttribute="leading" secondItem="8w2-B3-7aq" secondAttribute="leading" id="l4l-uB-oQt"/>
+                            <constraint firstItem="etH-nN-7t5" firstAttribute="top" secondItem="Z7P-AE-ArU" secondAttribute="bottom" constant="10" id="m00-Ds-PzS"/>
                             <constraint firstItem="etH-nN-7t5" firstAttribute="top" secondItem="zZp-Gb-EXz" secondAttribute="bottom" constant="10" id="wdW-Ro-mu7"/>
                             <constraint firstItem="8w2-B3-7aq" firstAttribute="trailing" secondItem="zZp-Gb-EXz" secondAttribute="trailing" constant="20" id="ypD-yg-a7h"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JKy-kz-H8h"/>
                     <connections>
+                        <outlet property="animationViewEmpty" destination="Z7P-AE-ArU" id="3b7-u1-YYM"/>
                         <outlet property="lblItems" destination="jqx-ca-fQX" id="Adn-fE-kUP"/>
                         <outlet property="lblTotalAmount" destination="Jis-R2-nY3" id="zwq-NY-XZD"/>
                         <outlet property="tblCartItems" destination="zZp-Gb-EXz" id="UWJ-x8-Yvl"/>
@@ -1036,12 +1101,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkX-cb-vNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2426" y="-537"/>
+            <point key="canvasLocation" x="2424.8000000000002" y="-537.48125937031489"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1Zw-8o-oAw">
             <objects>
                 <tabBarController id="oHo-Mp-heC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kbf-QC-8am"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Euz-74-seU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1060,6 +1126,13 @@
             <point key="canvasLocation" x="650" y="138"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="XHl-2a-eZB"/>
+        <designable name="Z7P-AE-ArU"/>
+    </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="YzU-7p-HuC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

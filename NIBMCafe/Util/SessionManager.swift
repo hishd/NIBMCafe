@@ -53,10 +53,8 @@ class SessionManager {
     
     //Clears all saved sessions
     class func clearUserSession(){
-        NSLog("ABC")
         UserDefaults.standard.removeObject(forKey: UserSession.USER_SESSION)
         UserDefaults.standard.setValue(false,forKey: UserSession.IS_LOGGED_IN)
-        NSLog("Cleared")
-        print(UserDefaults.standard.bool(forKey: UserSession.IS_LOGGED_IN))
+//        print(UserDefaults.standard.bool(forKey: UserSession.IS_LOGGED_IN))
     }
 }

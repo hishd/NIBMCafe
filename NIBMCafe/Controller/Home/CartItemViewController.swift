@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Lottie
 
 class CartItemViewController: BaseViewController {
     
     @IBOutlet weak var tblCartItems: UITableView!
     @IBOutlet weak var lblTotalAmount: UILabel!
     @IBOutlet weak var lblItems: UILabel!
+    @IBOutlet weak var animationViewEmpty: AnimationView!
     
     var totalBill: Double = 0;
     
@@ -32,6 +34,8 @@ class CartItemViewController: BaseViewController {
         registerNIB()
         networkMonitor.delegate = self
         firebaseOP.delegate = self
+        animationViewEmpty.loopMode = .loop
+        animationViewEmpty.play()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,9 +51,19 @@ class CartItemViewController: BaseViewController {
     func refreshCartInfo() {
         cartItems.removeAll()
         cartItems.append(contentsOf: realmDB.getCartItems())
+        
+        if(cartItems.count > 0) {
+            animationViewEmpty.stop()
+            animationViewEmpty.isHidden = true
+        }
+        
         lblItems.text = "\(cartItems.count) Items"
         totalBill = cartItems.lazy.map {$0.itemTotal}.reduce(0 , +)
-        lblTotalAmount.text = "RS. \(totalBill)"
+        lblTotalAmount.text = "\(totalBill.lkrString)"
+    }
+    
+    @IBAction func onBackPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onCheckoutClicked(_ sender: UIButton) {
@@ -189,7 +203,8 @@ extension CartItemViewController : FirebaseActions {
     func onOrderPlaced() {
         dismissProgress()
         displaySuccessMessage(message: "Order placed successfully", completion: {
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         })
         realmDB.removeAllFromCart(callback: {
             result in

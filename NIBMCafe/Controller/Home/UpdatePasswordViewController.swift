@@ -26,6 +26,10 @@ class UpdatePasswordViewController: BaseViewController {
         
     }
     
+    @IBAction func onBackPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func btnOnUpdateClicked(_ sender: UIButton) {
         
         if !InputFieldValidator.isValidPassword(pass: txtCurrentPassword.text ?? "", minLength: 6, maxLength: 20){
@@ -74,7 +78,8 @@ extension UpdatePasswordViewController: FirebaseActions {
     func onPasswordChanged() {
         dismissProgress()
         displaySuccessMessage(message: "Password updated successfully!", completion: {
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         })
     }
     func onPasswordChangeFailedWithError(error: String) {
