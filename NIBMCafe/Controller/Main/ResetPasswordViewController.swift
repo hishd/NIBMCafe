@@ -23,6 +23,10 @@ class ResetPasswordViewController: BaseViewController {
         networkMonitor.delegate = self
     }
     
+    @IBAction func onBackPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func onResetPasswordPressed(_ sender: UIButton) {
         if !InputFieldValidator.isValidEmail(txtEmail.text ?? "") {
             txtEmail.clearText()

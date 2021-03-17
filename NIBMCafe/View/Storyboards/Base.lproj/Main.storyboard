@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XkA-gq-gIy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xvt-MU-96y">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -26,27 +26,12 @@
         <!--Home-->
         <scene sceneID="MmH-V8-E8S">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="6cG-aE-rPp" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Home" id="6cG-aE-rPp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0F1-0T-d4x"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1v-sf-jEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="-500"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5iR-62-eGJ">
-            <objects>
-                <navigationController interfaceStyle="light" navigationBarHidden="YES" id="Kfw-Ab-aaF" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uaA-C7-2Kb">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xf3-wX-rjz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eWr-ZH-EvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1230" y="116"/>
+            <point key="canvasLocation" x="1371" y="-656"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="ovW-AE-3Sf">
@@ -81,13 +66,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="DNM-2a-sM2"/>
                     <connections>
-                        <segue destination="6cG-aE-rPp" kind="presentation" identifier="splashToHome" modalPresentationStyle="fullScreen" id="pEa-1P-OEB"/>
-                        <segue destination="Kfw-Ab-aaF" kind="presentation" identifier="splashToSignIn" modalPresentationStyle="fullScreen" id="Nty-x5-yds"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="splashToSignIn" id="DyD-t3-lNw"/>
+                        <segue destination="6cG-aE-rPp" kind="show" identifier="splashToHome" id="5JZ-EN-Bay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nq9-dc-yUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1230" y="-673"/>
+            <point key="canvasLocation" x="78" y="-655"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -97,7 +82,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUo-Rc-Mwk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUo-Rc-Mwk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX5-4U-e1d">
@@ -167,7 +152,7 @@
                                                     <color key="titleColor" name="dark_gray"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Ucy-CD-QmX" kind="presentation" modalPresentationStyle="fullScreen" id="dBd-2b-uAa"/>
+                                                    <segue destination="Ucy-CD-QmX" kind="show" id="dBd-2b-uAa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kis-GU-MNf">
@@ -205,7 +190,7 @@
                                                             <color key="titleColor" name="orange"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="GR6-W5-eWz" kind="presentation" modalPresentationStyle="fullScreen" id="AM9-PH-ktO"/>
+                                                            <segue destination="GR6-W5-eWz" kind="show" id="AM9-PH-ktO"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -258,12 +243,12 @@
                     <connections>
                         <outlet property="txtEmail" destination="pPx-k0-wWg" id="wBH-9k-Z2x"/>
                         <outlet property="txtPassword" destination="Vw7-Jd-sTe" id="Zki-fd-Pob"/>
-                        <segue destination="6cG-aE-rPp" kind="presentation" identifier="launchToHomeSegue" modalPresentationStyle="fullScreen" id="53y-0S-LfX"/>
+                        <segue destination="6cG-aE-rPp" kind="show" identifier="launchToHomeSegue" id="53y-0S-LfX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-342" y="116"/>
+            <point key="canvasLocation" x="79" y="116"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="t05-qX-OlP">
@@ -287,6 +272,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBackPressed:" destination="Ucy-CD-QmX" eventType="touchUpInside" id="gAc-MC-0rR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-KJ-tnb">
                                 <rect key="frame" x="111.5" y="23.5" width="152.5" height="23.5"/>
@@ -348,13 +336,14 @@
                             <constraint firstItem="jdh-y5-Zpi" firstAttribute="top" secondItem="Ye7-YH-H5o" secondAttribute="bottom" constant="60" id="vvJ-OO-EHx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="g32-Zx-wKF"/>
                     <connections>
                         <outlet property="txtEmail" destination="7zn-N1-VL7" id="0GP-k9-dpe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eo-yK-9Gy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="913"/>
+            <point key="canvasLocation" x="78" y="904"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="3m7-qz-IzS">
@@ -364,7 +353,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6s-Zo-3m5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6s-Zo-3m5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlj-3z-5Fp">
@@ -576,18 +565,19 @@
                             <constraint firstItem="H6s-Zo-3m5" firstAttribute="leading" secondItem="EeB-Vd-3Ut" secondAttribute="leading" id="ePZ-vO-fvl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7ii-YH-iaX"/>
                     <connections>
                         <outlet property="txtConfirmPassword" destination="fmJ-4J-o70" id="DmL-vc-iJK"/>
                         <outlet property="txtEmail" destination="gnz-iA-i7z" id="1yJ-Ev-bju"/>
                         <outlet property="txtPassword" destination="z6k-8o-QNj" id="aN7-Ak-Ic9"/>
                         <outlet property="txtPhoneNo" destination="shP-8O-8Aj" id="urP-g9-hlF"/>
                         <outlet property="txtUserName" destination="6tF-tN-dGy" id="LMm-QS-ebc"/>
-                        <segue destination="hx4-Ko-B5o" kind="presentation" identifier="signUpToAllowLocation" modalPresentationStyle="fullScreen" id="dvx-v5-IGg"/>
+                        <segue destination="hx4-Ko-B5o" kind="show" identifier="signUpToAllowLocation" id="dvx-v5-IGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-3d-RIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="116"/>
+            <point key="canvasLocation" x="1616.8" y="115.59220389805098"/>
         </scene>
         <!--Request Location View Controller-->
         <scene sceneID="uUA-I6-Thv">
@@ -653,13 +643,31 @@
                             <constraint firstItem="ddz-bl-i1S" firstAttribute="leading" secondItem="iTA-Ky-gRF" secondAttribute="leading" constant="40" id="rqF-eF-BUG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="b1E-Zo-w0I"/>
                     <connections>
-                        <segue destination="6cG-aE-rPp" kind="presentation" identifier="signUptoHomeSegue" modalPresentationStyle="fullScreen" id="9d2-bd-1SA"/>
+                        <segue destination="6cG-aE-rPp" kind="show" identifier="signUptoHomeSegue" id="9d2-bd-1SA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMZ-ce-gdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="116"/>
+            <point key="canvasLocation" x="2423.1999999999998" y="115.59220389805098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="24n-PQ-ppe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xvt-MU-96y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eYZ-9h-0Og">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XkA-gq-gIy" kind="relationship" relationship="rootViewController" id="Ale-5H-CBw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C6w-qq-vOr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-865" y="-655"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

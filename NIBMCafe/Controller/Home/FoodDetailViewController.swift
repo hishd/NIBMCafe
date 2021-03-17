@@ -35,7 +35,8 @@ class FoodDetailViewController: BaseViewController {
     }
     
     @IBAction func onBackPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onMinusPressed(_ sender: UIButton) {
@@ -64,7 +65,8 @@ class FoodDetailViewController: BaseViewController {
             result in
             if result {
                 displaySuccessMessage(message: "Item added to cart", completion: {
-                    self.dismiss(animated: true, completion: nil)
+//                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
                 })
             } else {
                 displayErrorMessage(message: "Failed to add to cart")

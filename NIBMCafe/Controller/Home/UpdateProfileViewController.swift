@@ -35,7 +35,8 @@ class UpdateProfileViewController: BaseViewController {
     }
     
     @IBAction func onBackPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onUpdateProfilePressed(_ sender: UIButton) {
@@ -83,7 +84,8 @@ extension UpdateProfileViewController: FirebaseActions {
         dismissProgress()
         SessionManager.saveUserSession(user!)
         displaySuccessMessage(message: "Profile updated successfully!", completion: {
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         })
     }
     func onUserUpdateFailed(error: String) {

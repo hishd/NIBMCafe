@@ -29,7 +29,8 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func onSignInPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onSignUpClicked(_ sender: UIButton) {
