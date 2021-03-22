@@ -244,6 +244,7 @@
                         <outlet property="txtEmail" destination="pPx-k0-wWg" id="wBH-9k-Z2x"/>
                         <outlet property="txtPassword" destination="Vw7-Jd-sTe" id="Zki-fd-Pob"/>
                         <segue destination="6cG-aE-rPp" kind="show" identifier="launchToHomeSegue" id="53y-0S-LfX"/>
+                        <segue destination="hx4-Ko-B5o" kind="show" identifier="signInToAllowLocation" id="tzY-sn-RQS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -577,7 +578,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIt-3d-RIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616.8" y="115.59220389805098"/>
+            <point key="canvasLocation" x="1370" y="676"/>
         </scene>
         <!--Request Location View Controller-->
         <scene sceneID="uUA-I6-Thv">
@@ -645,12 +646,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="b1E-Zo-w0I"/>
                     <connections>
-                        <segue destination="6cG-aE-rPp" kind="show" identifier="signUptoHomeSegue" id="9d2-bd-1SA"/>
+                        <segue destination="6cG-aE-rPp" kind="show" identifier="allowLocationtoHomeSegue" id="9d2-bd-1SA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMZ-ce-gdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423.1999999999998" y="115.59220389805098"/>
+            <point key="canvasLocation" x="2428" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="24n-PQ-ppe">
@@ -671,7 +672,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="53y-0S-LfX"/>
+        <segue reference="tzY-sn-RQS"/>
+        <segue reference="9d2-bd-1SA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

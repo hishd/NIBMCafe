@@ -7,6 +7,7 @@
 
 import UIKit
 import Loaf
+import CoreLocation
 
 class BaseViewController: UIViewController, NetworkListener {
     
@@ -20,6 +21,8 @@ class BaseViewController: UIViewController, NetworkListener {
     let refreshControl = UIRefreshControl()
     
     var alertController: UIAlertController!
+    
+    let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +68,23 @@ class BaseViewController: UIViewController, NetworkListener {
         alertController.addAction(UIAlertAction(title: positiveTitle, style: .default, handler: positiveHandler))
         alertController.addAction(UIAlertAction(title: negativeTitle, style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func checkLocationAccess() -> Bool {
+        if CLLocationManager.locationServicesEnabled() {
+            switch locationManager.authorizationStatus {
+            case .restricted, .denied, .notDetermined:
+                NSLog("Location services disabled")
+                return false
+            case .authorizedAlways, .authorizedWhenInUse:
+                NSLog("Location services enabled")
+                return true
+            default:
+                return false
+            }
+        } else {
+            return false
+        }
     }
     
 

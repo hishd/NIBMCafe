@@ -10,11 +10,12 @@ import Foundation
 struct StoryBoardSegues {
     static let launchToHomeSegue = "launchToHomeSegue"
     static let signUpToAllowLocation = "signUpToAllowLocation"
-    static let signUptoHomeSegue = "signUptoHomeSegue"
+    static let allowLocationtoHomeSegue = "allowLocationtoHomeSegue"
     static let homeToViewDetails = "homeToViewDetails"
     static let splashToHome = "splashToHome"
     static let splashToSignIn = "splashToSignIn"
     static let profileToLaunch = "profileToLaunch"
+    static let signInToAllowLocation = "signInToAllowLocation"
 }
 
 //Name of the SessionVariables

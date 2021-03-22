@@ -72,8 +72,12 @@ extension SignInViewController : FirebaseActions {
         dismissProgress()
         if let user = user {
             self.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: StoryBoardSegues.launchToHomeSegue, sender: nil)
             SessionManager.saveUserSession(user)
+            if checkLocationAccess() {
+                self.performSegue(withIdentifier: StoryBoardSegues.launchToHomeSegue, sender: nil)
+            } else {
+                self.performSegue(withIdentifier: StoryBoardSegues.signInToAllowLocation, sender: nil)
+            }
         } else {
             displayErrorMessage(message: FieldErrorCaptions.generalizedError)
         }

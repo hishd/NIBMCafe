@@ -1126,10 +1126,6 @@
             <point key="canvasLocation" x="650" y="138"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="XHl-2a-eZB"/>
-        <designable name="Z7P-AE-ArU"/>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="YzU-7p-HuC"/>
     </inferredMetricsTieBreakers>
