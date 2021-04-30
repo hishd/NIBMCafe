@@ -90,7 +90,7 @@ class CartItemViewController: BaseViewController {
     }
     
     func confirmAndPurchase() {
-        guard let email = SessionManager.getUserSesion()?.email else {
+        guard let email = SessionManager.getUserSesion()?.email, let name = SessionManager.getUserSesion()?.userName else {
             NSLog("The email is empty")
             displayErrorMessage(message: FieldErrorCaptions.orderPlacingError)
             return
@@ -104,7 +104,8 @@ class CartItemViewController: BaseViewController {
                                        foodDescription: item.description,
                                        foodPrice: item.discountedPrice,
                                        discount: item.discount,
-                                       foodImgRes: item.itemImgRes),
+                                       foodImgRes: item.itemImgRes,
+                                       isActive: true),
                     qty: item.itemCount)
             )
         }
@@ -112,13 +113,14 @@ class CartItemViewController: BaseViewController {
         displayProgress()
         firebaseOP.placeFoodOrder(order: Order(
                                     orderID: "",
-                                    orderStatusCode: 0,
+                                    orderStatusCode: OrderStatusInt.ORDER_PENDING,
                                     orderStatusString: "Pending",
                                     orderDate: Date(),
                                     itemCount: cartItems.count,
                                     orderTotal: totalBill,
-                                    orderItems: orderItems),
-                                  email: email)
+                                    orderItems: orderItems,
+                                    customername: name),
+                                  email: email, customerName: name)
     }
     
     /*

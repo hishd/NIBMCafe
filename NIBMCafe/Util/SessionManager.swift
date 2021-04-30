@@ -55,6 +55,5 @@ class SessionManager {
     class func clearUserSession(){
         UserDefaults.standard.removeObject(forKey: UserSession.USER_SESSION)
         UserDefaults.standard.setValue(false,forKey: UserSession.IS_LOGGED_IN)
-//        print(UserDefaults.standard.bool(forKey: UserSession.IS_LOGGED_IN))
     }
 }

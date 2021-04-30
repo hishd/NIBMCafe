@@ -38,7 +38,7 @@ class OrderCell: UITableViewCell {
         lblOrderID.text = order.orderID
         lblOrderDate.text = DateUtil.getDate(date: order.orderDate)
         lblOrderItemCount.text = "\(order.itemCount) Items"
-        lblOrderStatus.text = order.orderStatusString
+        lblOrderStatus.text = order.orderStatus.rawValue
         lblOrderTotal.text = order.orderTotal.lkrString
     }
     

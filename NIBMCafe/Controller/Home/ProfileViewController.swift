@@ -48,9 +48,7 @@ class ProfileViewController: BaseViewController {
 //    ]
     
     var filteredOrders: [Order] = []
-    
-    let textArray: [String] = ["Text1\nText2\nText3\nText4", "Text1\nText2", "Text1\nText2\nText3\nText4\nText5\nText6\nText7"]
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNIB()
@@ -159,6 +157,7 @@ class ProfileViewController: BaseViewController {
         pickerToolBar.setItems([doneAction, space, cancelButton], animated: true)
         txtToDate.inputAccessoryView = pickerToolBar
         txtFromDate.inputAccessoryView = pickerToolBar
+        
         txtToDate.inputView = datePicker
         txtFromDate.inputView = datePicker
         datePicker.datePickerMode = .date

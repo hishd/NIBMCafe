@@ -23,11 +23,26 @@ class BaseViewController: UIViewController, NetworkListener {
     var alertController: UIAlertController!
     
     let locationManager = CLLocationManager()
+    
+    var pickedLattitude: Double = 0
+    var pickedLonglitude: Double = 0
+    var locationFetchStarted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         progressHUD = ProgressHUD(view: view)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 10
+        DispatchQueue.main.async {
+            self.locationManager.startUpdatingLocation()
+            self.locationFetchStarted = true
+        }
     }
     
     func displayProgress() {
@@ -86,16 +101,30 @@ class BaseViewController: UIViewController, NetworkListener {
             return false
         }
     }
+}
+
+extension BaseViewController : CLLocationManagerDelegate {
+//    
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        if status == .authorizedAlways || status == .authorizedWhenInUse {
+//            self.performSegue(withIdentifier: StoryBoardSegues.allowLocationtoHomeSegue, sender: nil)
+//        }
+//    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            pickedLattitude = location.coordinate.latitude
+            pickedLonglitude = location.coordinate.longitude
+            print("Locations updated : \(location)")
+            if networkMonitor.isReachable {
+                firebaseOP.checkforPendingOrdersAndUpdate(email: SessionManager.getUserSesion()?.email ?? "", lat: pickedLattitude, lon: pickedLonglitude)
+            }
+        }
     }
-    */
-
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        displayErrorMessage(message: "Location error")
+        print(error.localizedDescription)
+    }
+    
 }

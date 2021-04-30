@@ -65,12 +65,15 @@ class OrderViewController: BaseViewController {
             return
         case 1:
             filteredOrders.removeAll()
-            filteredOrders = fetchedOrders.filter { $0.orderStatus == OrderStatus.ORDER_PENDING || $0.orderStatus == OrderStatus.ORDER_READY }
+            filteredOrders = fetchedOrders.filter {
+                $0.orderStatus == OrderStatus.ORDER_PREPERATION || $0.orderStatus == OrderStatus.ORDER_READY
+                    || $0.orderStatus == OrderStatus.ORDER_ARRIVING || $0.orderStatus == OrderStatus.ORDER_COMPLETED
+            }
             tblOrders.reloadData()
             return
         case 2:
             filteredOrders.removeAll()
-            filteredOrders = fetchedOrders.filter { $0.orderStatus == OrderStatus.ORDER_COMPLETED }
+            filteredOrders = fetchedOrders.filter { $0.orderStatus == OrderStatus.ORDER_COMPLETED || $0.orderStatus == OrderStatus.ORDER_CANCELLED }
             tblOrders.reloadData()
             return
         default:

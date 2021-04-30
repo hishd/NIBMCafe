@@ -25,6 +25,7 @@ class RequestLocationViewController: BaseViewController {
         if checkLocationAccess() {
             self.performSegue(withIdentifier: StoryBoardSegues.allowLocationtoHomeSegue, sender: nil)
         } else {
+            displayInfoMessage(message: "Location services disabled!")
             locationManager.requestAlwaysAuthorization()
         }
 //        if CLLocationManager.locationServicesEnabled() {
@@ -44,12 +45,4 @@ class RequestLocationViewController: BaseViewController {
 //        }
     }
     
-}
-
-extension RequestLocationViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways || status == .authorizedWhenInUse {
-            self.performSegue(withIdentifier: StoryBoardSegues.allowLocationtoHomeSegue, sender: nil)
-        }
-    }
 }

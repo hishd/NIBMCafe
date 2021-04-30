@@ -23,13 +23,7 @@ class FoodViewController: BaseViewController {
     
     var filteredFood: [FoodItem] = []
     
-//    var categories: [FoodCategory] = [
-//        FoodCategory(categoryName: "All", isSelected: true),
-//        FoodCategory(categoryName: "Pasta", isSelected: false),
-//        FoodCategory(categoryName: "Drinks", isSelected: false),
-//        FoodCategory(categoryName: "Beverages", isSelected: false),
-//        FoodCategory(categoryName: "Deserts", isSelected: false)
-//    ]
+//    !
 //
 //    var foodItems: [FoodItem] = [
 //        FoodItem(foodName: "Chicken Burger", foodDescription: "Chicken patty hamburger", foodPrice: 1500.00, discount: 30, foodImgRes: "burger"),
@@ -55,6 +49,7 @@ class FoodViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         firebaseOP.delegate = self
         networkMonitor.delegate = self
         
